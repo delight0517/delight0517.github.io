@@ -1,0 +1,45 @@
+name: SEO Auto-Ping & Indexing Automation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+  schedule:
+    - cron: '0 0 * * 1' # 매주 월요일 자정에 정기적으로 한 번 더 핑 전송 (방치 방지)
+  workflow_dispatch: # GitHub 웹사이트에서 수동으로 버튼을 눌러서 실행 가능
+
+jobs:
+  ping-search-engines:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: 📡 Google에 사이트맵 핑(Ping) 전송
+        run: |
+          echo "구글에 사이트맵 업데이트를 알립니다..."
+          HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}\n" "https://www.google.com/ping?sitemap=https://delight0517.github.io/sitemap.xml")
+          if [ "$HTTP_STATUS" -eq 200 ]; then
+            echo "✅ 구글 핑 전송 성공!"
+          else
+            echo "⚠️ 구글 핑 전송 실패 (HTTP $HTTP_STATUS)"
+          fi
+
+      - name: 🚀 IndexNow (Bing/Yandex 등) 자동 색인 전송
+        run: |
+          echo "IndexNow 프로토콜을 통해 즉각 색인을 요청합니다..."
+          if [ -f "scripts/indexnow_ping.py" ]; then
+            python scripts/indexnow_ping.py
+          else
+            echo "indexnow_ping.py 스크립트가 없습니다."
+          fi
+
+      # 추후 Google Indexing API (GCP 서비스 계정) 연동 시 여기에 단계 추가 가능
