@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://delight0517.github.io/sitemap.xml
+Sitemap: https://delight0517.github.io/releasepilot-reports/sitemap.xml

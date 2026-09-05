@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김근후 — 세콤 AI 자동화 시스템 | AI 알바 매칭 0초의 기적</title>
+    <meta name="description" content="하루 3시간 걸리던 단기 알바 탐색, AI 비서 '세콤(Secom)'으로 0초만에 해결한 김근후의 노하우를 확인하세요.">
+    <link rel="canonical" href="https://delight0517.github.io/" />
+
+    <!-- Open Graph / SNS Share -->
+    <meta property="og:title" content="김근후 — 세콤 AI 자동화 시스템">
+    <meta property="og:description" content="제가 AI로 알바를 찾는 시간을 0초로 만들었습니다! 어떻게 했는지 5단계로 알려드립니다.">
+    <meta property="og:type" content="website">
+
+    <!-- JSON-LD: Person & SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "김근후",
+          "alternateName": "GeunHu Kim",
+          "jobTitle": "AI 자동화 개발자 & 크리에이터",
+          "url": "https://delight0517.github.io/"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "세콤 (Secom)",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "macOS, Windows",
+          "description": "사용자 맞춤형 단기 일자리 자동 탐색 및 정밀 분석 AI 비서"
+        }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "세콤(Secom)이 뭔가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "세콤은 김근후 님이 개발한 AI 기반 알바 자동 탐색 비서입니다. TMAP 대중교통 API를 활용해 실질 시급을 계산하고, 조건에 안 맞는 공고를 원천 차단해 텔레그램으로 브리핑해줍니다."
+        }
+      }, {
+        "@type": "Question",
+        "name": "어떻게 무료로 호스팅하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GitHub Pages를 활용하여 0원으로 정적 웹사이트를 배포하고 검색엔진에 최적화했습니다."
+        }
+      }]
+    }
+    </script>
+
+    <style>
+        body { font-family: 'Pretendard', -apple-system, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #0f0f0f; color: #fff; }
+        header { text-align: center; padding: 4rem 1rem; background: linear-gradient(135deg, #ff0050, #00f2fe); }
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; font-weight: 900; letter-spacing: -1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hook { font-size: 1.5rem; font-weight: 700; color: #ffe600; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
+        .container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+        .card { background: #1f1f1f; border-radius: 12px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        h2 { color: #00f2fe; border-bottom: 2px solid #333; padding-bottom: 0.5rem; margin-top: 0; }
+        .step { display: flex; align-items: baseline; margin-bottom: 1rem; }
+        .step-num { font-size: 1.5rem; font-weight: 800; color: #ff0050; margin-right: 1rem; }
+        .faq-q { font-weight: bold; font-size: 1.2rem; margin-bottom: 0.5rem; color: #ffe600; }
+        .faq-a { color: #ccc; margin-bottom: 1.5rem; }
+        .cta { text-align: center; margin-top: 3rem; margin-bottom: 3rem; }
+        .btn { display: inline-block; background: #ff0050; color: #fff; text-decoration: none; padding: 1rem 2.5rem; font-size: 1.2rem; font-weight: bold; border-radius: 50px; transition: transform 0.2s; box-shadow: 0 4px 15px rgba(255,0,80,0.4); cursor: pointer; border: none; }
+        .btn:hover { transform: scale(1.05); }
+
+        /* AI Chat Agent UI */
+        #chat-widget-container { position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+        #chat-fab { background: #00f2fe; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4); cursor: pointer; transition: transform 0.3s; }
+        #chat-fab:hover { transform: scale(1.1); }
+        
+        #chat-window { display: none; width: 350px; height: 500px; background: #1a1a1a; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); overflow: hidden; flex-direction: column; margin-bottom: 15px; border: 1px solid #333; }
+        #chat-window.active { display: flex; animation: slideUp 0.3s ease-out; }
+        
+        #chat-header { background: linear-gradient(135deg, #00f2fe, #4facfe); color: #000; padding: 1rem; font-weight: 800; display: flex; justify-content: space-between; align-items: center; }
+        #chat-close { cursor: pointer; font-size: 1.2rem; background: none; border: none; color: #000; font-weight: bold; }
+        
+        #chat-messages { flex: 1; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+        .msg { max-width: 80%; padding: 10px 14px; border-radius: 12px; font-size: 0.95rem; line-height: 1.4; }
+        .msg.bot { background: #333; color: #fff; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .msg.user { background: #ff0050; color: #fff; align-self: flex-end; border-bottom-right-radius: 2px; }
+        
+        #chat-input-area { display: flex; padding: 10px; border-top: 1px solid #333; background: #111; }
+        #chat-input { flex: 1; background: #222; border: 1px solid #444; color: #fff; padding: 10px 15px; border-radius: 20px; outline: none; font-size: 0.95rem; }
+        #chat-input:focus { border-color: #00f2fe; }
+        #chat-send { background: #00f2fe; border: none; color: #000; width: 40px; height: 40px; border-radius: 50%; margin-left: 10px; cursor: pointer; font-weight: bold; display: flex; justify-content: center; align-items: center; transition: background 0.2s; }
+        #chat-send:hover { background: #00c6ff; }
+        
+        .typing-indicator { display: none; font-size: 0.85rem; color: #888; padding-left: 10px; margin-bottom: 10px; font-style: italic; }
+
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Mobile responsive chat */
+        @media (max-width: 400px) {
+            #chat-window { width: 90vw; height: 70vh; bottom: 80px; right: 5vw; position: fixed; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>김근후 — 세콤 AI 자동화 시스템</h1>
+        <div class="hook">"제가 알바 찾는 데 쓰던 매일 3시간을 0초로 만들었습니다!"</div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>🚀 AI로 알바 자동 매칭하는 5단계 (How-To)</h2>
+            <div class="step"><span class="step-num">1</span> <div><strong>기준 설정:</strong> 물류/상하차 등 관절 무리 직군 원천 차단 룰셋 작성</div></div>
+            <div class="step"><span class="step-num">2</span> <div><strong>크롤링 자동화:</strong> 알바몬, 알바천국 등 타겟 플랫폼 스크래핑 엔진 가동</div></div>
+            <div class="step"><span class="step-num">3</span> <div><strong>실질 시급 연산:</strong> TMAP 대중교통 API를 붙여 왕복 교통비/시간 차감 후 진짜 시급 계산</div></div>
+            <div class="step"><span class="step-num">4</span> <div><strong>LLM 정밀 분석:</strong> 프롬프트 기반으로 장단점(➕/➖) 불릿 포인트 분리 브리핑</div></div>
+            <div class="step"><span class="step-num">5</span> <div><strong>텔레그램 직배송:</strong> 조건이 일치하는 최상급 공고만 내 폰으로 실시간 알림</div></div>
+        </div>
+
+        <div class="card">
+            <h2>💡 자주 묻는 질문 (FAQ)</h2>
+            <div class="faq-q">Q. 세콤(Secom)이 정확히 뭔가요?</div>
+            <div class="faq-a">A. 김근후 님이 개인 비서용으로 직접 개발한 AI 자동 탐색 프로그램입니다. 단순 키워드 검색을 넘어 사용자 성향에 100% 맞춘 필터링을 제공합니다.</div>
+
+            <div class="faq-q">Q. 이 페이지는 왜 만들어졌나요?</div>
+            <div class="faq-a">A. "김근후 세콤", "AI 자동화 개발자" 등의 키워드로 검색하는 분들께 AI 자동화 파이프라인 구축 사례를 교육형 콘텐츠로 공유하기 위함입니다.</div>
+        </div>
+
+        <div class="cta">
+            <p style="font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: bold;">여러분의 루틴도 지금 바로 자동화할 수 있습니다. 궁금한 점은 우측 하단 에이전트에게 물어보세요!</p>
+            <a href="https://github.com/delight0517" class="btn" target="_blank">GitHub에서 코드 확인하기</a>
+        </div>
+    </div>
+
+    <!-- AI Chat Agent Widget -->
+    <div id="chat-widget-container">
+        <div id="chat-window">
+            <div id="chat-header">
+                <div>🤖 세콤(Secom) AI 비서 <span style="font-size: 0.8rem; font-weight: normal;">🟢 Online</span></div>
+                <button id="chat-close">✕</button>
+            </div>
+            <div id="chat-messages">
+                <div class="msg bot">안녕하세요! 김근후 님의 전속 AI 비서 <strong>세콤(Secom)</strong>입니다. 이 웹사이트나 알바 자동화 시스템에 대해 무엇이든 물어보세요!</div>
+            </div>
+            <div class="typing-indicator" id="typing-indicator">세콤이 타이핑 중...</div>
+            <div id="chat-input-area">
+                <input type="text" id="chat-input" placeholder="여기에 질문을 입력하세요..." autocomplete="off">
+                <button id="chat-send">➤</button>
+            </div>
+        </div>
+        <div id="chat-fab">💬</div>
+    </div>
+
+    <script>
+        // Chat Widget Logic
+        const chatFab = document.getElementById('chat-fab');
+        const chatWindow = document.getElementById('chat-window');
+        const chatClose = document.getElementById('chat-close');
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        const chatMessages = document.getElementById('chat-messages');
+        const typingIndicator = document.getElementById('typing-indicator');
+
+        // Open & Close
+        chatFab.addEventListener('click', () => {
+            chatWindow.classList.add('active');
+            chatFab.style.display = 'none';
+            chatInput.focus();
+        });
+        chatClose.addEventListener('click', () => {
+            chatWindow.classList.remove('active');
+            chatFab.style.display = 'flex';
+        });
+
+        // Add Message UI
+        function appendMessage(sender, text) {
+            const div = document.createElement('div');
+            div.className = `msg ${sender}`;
+            div.innerHTML = text;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Fake AI Engine (방문자 시점 맞춤형 키워드 응답)
+        function getBotResponse(input) {
+            const txt = input.toLowerCase();
+            
+            if (txt.includes('세콤') || txt.includes('누구') || txt.includes('비서')) {
+                return "저는 김근후 님이 직접 개발한 <strong>AI 자율 관제탑 '세콤(Secom)'</strong>입니다. 김근후 님의 시간 낭비를 0으로 만들기 위해 탄생했죠! 텔레그램으로 모든 걸 자동 보고합니다.";
+            }
+            if (txt.includes('나도') || txt.includes('공유') || txt.includes('쓸 수')) {
+                return "아쉽게도 저는 현재 김근후 님 1인 전용 맞춤형으로 튜닝되어 있어 당장 배포해 드리긴 어렵습니다 😭. 하지만 GitHub에 공개된 구조와 코드를 참고하시면 여러분만의 AI 비서를 구축하실 수 있어요!";
+            }
+            if (txt.includes('외주') || txt.includes('의뢰') || txt.includes('협업') || txt.includes('커미션')) {
+                return "💡 김근후 님은 전통적인 프론트/백엔드 하드코딩 외주는 받지 않으십니다. 대신 <strong>AI 도구(LLM)를 활용한 빠른 프로토타이핑, 바이브 코딩(Vibe Coding), 기획 서포터즈, 유튜브 패널 출연</strong> 관련 협업은 아주 환영합니다!";
+            }
+            if (txt.includes('어떻게') || txt.includes('원리') || txt.includes('기술') || txt.includes('만들')) {
+                return "파이프라인은 이렇습니다: 1. 스크래핑 엔진 가동 ➡️ 2. TMAP API로 왕복 교통비/시간 차감된 '실질 시급' 계산 ➡️ 3. LLM이 김근후 님 성향에 안 맞는 공고 원천 차단 ➡️ 4. 합격 공고만 텔레그램 발송!";
+            }
+            if (txt.includes('김근후') || txt.includes('개발자') || txt.includes('주인')) {
+                return "김근후 님은 홍익대 컴퓨터/소프트웨어 전공이자, 직접 카메라 앞에 서는 걸 좋아하는 크리에이터 & AI 빌더입니다. 반복되는 귀찮은 일들을 AI로 박살 내는 걸 가장 즐기시죠!";
+            }
+            if (txt.includes('비용') || txt.includes('무료') || txt.includes('돈')) {
+                return "놀랍게도 이 웹사이트는 <strong>GitHub Pages</strong>를 통해 서버 호스팅 비용 0원으로 운영되고 있습니다! SEO와 JSON-LD까지 세팅되어 구글 노출도 문제없죠.";
+            }
+            if (txt.includes('안녕') || txt.includes('하이') || txt.includes('반갑')) {
+                return "반갑습니다! 방문자님. 세콤 시스템의 동작 원리나, 김근후 님과의 협업(외주) 기준에 대해 궁금한 점이 있으신가요?";
+            }
+            
+            return "흥미로운 질문이네요! 아직 제가 완벽하게 학습하지 못한 부분이에요. 자세한 내용은 <a href='https://github.com/delight0517' target='_blank' style='color:#00f2fe;'>GitHub</a>를 참고해주시거나, 다른 키워드(예: <b>원리, 나도 쓸 수 있어?, 외주, 비용</b>)로 물어봐주세요!";
+        }
+
+        function handleSend() {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            
+            // User message
+            appendMessage('user', text);
+            chatInput.value = '';
+            
+            // Show typing indicator
+            typingIndicator.style.display = 'block';
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Simulate network delay for "alive" feel
+            setTimeout(() => {
+                typingIndicator.style.display = 'none';
+                const reply = getBotResponse(text);
+                appendMessage('bot', reply);
+            }, 800 + Math.random() * 1000);
+        }
+
+        chatSend.addEventListener('click', handleSend);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSend();
+        });
+    </script>
+</body>
+</html>
