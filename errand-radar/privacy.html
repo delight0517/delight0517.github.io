@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>심부름 알리미 개인정보 처리방침</title>
+<meta name="description" content="심부름 알리미(Errand Radar) 앱의 개인정보 처리방침 — 위치 데이터 수집·이용, 기기 내 저장, 선택적 클라우드/AI 연동 안내.">
+<link rel="canonical" href="https://delight0517.github.io/errand-radar/privacy.html" />
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 760px; margin: 0 auto; padding: 32px 20px 80px; font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif; background: #fff; color: #1a1a1a; }
+  @media (prefers-color-scheme: dark) { body { background: #111; color: #e8e8e8; } a { color: #8ab4f8; } code { background:#222; } }
+  h1 { font-size: 1.6rem; margin-bottom: 4px; }
+  h2 { font-size: 1.2rem; margin-top: 2.2em; border-top: 1px solid rgba(128,128,128,.25); padding-top: 1.2em; }
+  .meta { color: #888; font-size: .9rem; margin-bottom: 2em; }
+  ul { padding-left: 1.2em; }
+  li { margin: .3em 0; }
+  a { color: #1a56db; }
+  code { background: #f0f0f0; padding: 1px 5px; border-radius: 4px; font-size: .9em; }
+  footer { margin-top: 3em; font-size: .9rem; color: #888; }
+</style>
+</head>
+<body>
+
+<h1>심부름 알리미 개인정보 처리방침</h1>
+<p class="meta">시행일: 2026년 9월 10일 · 앱 이름: 심부름 알리미 (Errand Radar) · 문의: <a href="mailto:imdisablebutgodisable@gmail.com">imdisablebutgodisable@gmail.com</a></p>
+
+<p>심부름 알리미(이하 “앱”)는 이용자의 개인정보를 소중하게 생각합니다. 앱의 핵심 기능(심부름 등록, 출발 브리핑, 날씨 안내)은 이용자 기기 안에서만 동작하며 회원가입 없이 사용할 수 있습니다. 위치 기능은 <strong>선택 사항</strong>이며, 켜지 않아도 앱의 대부분 기능을 그대로 사용할 수 있습니다.</p>
+
+<h2>1. 위치 데이터 (선택 기능)</h2>
+<ul>
+  <li><strong>어떤 데이터</strong>: 기기의 대략적/정확한 위치 좌표(위도·경도). 이용자가 “도착 알림”을 켜고 위치 권한을 허용한 경우에만 수집됩니다.</li>
+  <li><strong>왜 사용하는가</strong>: 이용자가 직접 등록한 장소(가게·집·지역)의 반경에 들어왔는지 판단해, “여기서 살 것이 있어요” 알림을 띄우기 위해서입니다. 실시간 이동 경로 추적은 하지 않으며, 배터리 절약을 위해 큰 이동이 있을 때와 운영체제의 지오펜스 이벤트가 발생할 때만 위치를 확인합니다.</li>
+  <li><strong>저장 위치</strong>: 위치 좌표와 이용자가 등록한 장소 정보는 <strong>이용자의 기기에만 저장</strong>됩니다. 아래 “3. 클라우드 동기화”를 켜지 않는 한 외부 서버로 전송되지 않습니다.</li>
+  <li><strong>제3자 제공</strong>: 위치 데이터를 제3자에게 판매하거나 제공하지 않습니다. 광고 목적으로 사용하지 않습니다.</li>
+  <li><strong>백그라운드 위치</strong>: 앱을 열지 않은 상태에서도 도착 알림을 받으려면 “항상 허용” 권한이 필요합니다. 이 권한은 도착 알림 기능에만 사용됩니다.</li>
+  <li><strong>철회</strong>: 기기 설정에서 위치 권한을 언제든 해제할 수 있으며, 해제 시 도착 알림만 비활성화되고 나머지 기능은 정상 동작합니다.</li>
+</ul>
+
+<h2>2. 기기 내에 저장되는 정보</h2>
+<ul>
+  <li>이용자가 입력한 심부름 내용(살 것·챙길 것·조건)</li>
+  <li>이용자가 등록한 장소의 이름·좌표·알림 반경</li>
+  <li>날씨 후회 메모와 그 시점의 날씨 값(기온·체감·강수 등)</li>
+  <li>알림 설정 값, 앱 내부 오류 로그(진단 목적)</li>
+</ul>
+
+<h2>3. 선택 기능 사용 시 처리되는 정보</h2>
+<ul>
+  <li><strong>클라우드 계정 동기화</strong>: 이용자가 블루클라우드 계정으로 로그인하면 계정 식별자와 심부름·장소 데이터가 동기화 서버(<code>brainwire-f2gf.onrender.com</code>)에 저장되어 다른 기기에서 열람할 수 있습니다. 로그인하지 않으면 동기화되지 않습니다.</li>
+  <li><strong>AI 문장 해석</strong>: 채팅으로 심부름을 등록할 때 입력 문장이 해석을 위해 위 동기화 서버를 거쳐 무료 AI 모델(Groq/Gemini 등)로 전달됩니다. 문장은 해석 목적으로만 사용되며 별도로 저장하지 않습니다. 앱에는 AI 서비스 키가 포함되어 있지 않습니다.</li>
+  <li><strong>날씨</strong>: 출발 브리핑을 위해 기기의 대략적 위치(또는 이용자가 지정한 지역)를 사용해 Open-Meteo 공개 API로 예보를 조회합니다. Open-Meteo에는 이용자 식별 정보를 보내지 않습니다.</li>
+  <li><strong>마이크·음성 인식</strong>: 이용자가 음성 입력 버튼을 누른 동안에만 동작하며, 인식된 텍스트만 앱이 사용합니다.</li>
+</ul>
+
+<h2>4. 광고</h2>
+<p>1차 출시 버전에는 광고가 포함되어 있지 않습니다. 향후 광고를 도입할 경우 이 방침을 갱신하고, 광고는 하루 최대 3회·특정 시간대에만 표시되도록 제한합니다.</p>
+
+<h2>5. 아동의 개인정보</h2>
+<p>앱은 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 고의로 수집하지 않습니다.</p>
+
+<h2>6. 문의</h2>
+<p>개인정보 처리에 관한 문의는 <a href="mailto:imdisablebutgodisable@gmail.com">imdisablebutgodisable@gmail.com</a> 으로 연락해 주세요.</p>
+
+<footer>
+  <p>본 방침은 2026년 9월 10일부터 시행됩니다. 변경 시 이 페이지를 통해 공지합니다.</p>
+  <p><a href="/">delight0517.github.io</a></p>
+</footer>
+
+</body>
+</html>
