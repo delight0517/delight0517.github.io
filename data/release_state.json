@@ -1,0 +1,15 @@
+{
+  "note": "Baseline of last-known released versions as of 2026-09-13. The release routine compares each app's iTunes Lookup version against this; a difference triggers a news post (with that version's release notes) + story chapter. Apps with no live result stay unbound until they actually appear on the App Store.",
+  "apps": {
+    "everytime-reminder": { "live": true, "itunesId": 6774095537, "lastVersion": "1.0.21" },
+    "auto-pomodoro": { "live": true, "itunesId": 6805697231, "lastVersion": "1.0" },
+    "easy-paster": { "live": true, "itunesId": 6766851035, "lastVersion": "1.0" },
+    "35closer-timer": { "live": false, "itunesId": "6805697167", "lastVersion": null },
+    "risesync": { "live": false, "itunesId": "6805697405", "lastVersion": null },
+    "harugirok": { "live": false, "itunesId": "6805697378", "lastVersion": null },
+    "releasepilot": { "live": false, "itunesId": null, "lastVersion": null },
+    "oneflow-image-resizer": { "live": false, "itunesId": null, "lastVersion": null },
+    "isle": { "live": false, "itunesId": null, "lastVersion": null },
+    "iphone-debug-read": { "live": false, "itunesId": null, "lastVersion": null }
+  }
+}
