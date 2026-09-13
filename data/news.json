@@ -1,0 +1,67 @@
+{
+  "posts": [
+    {
+      "date": "2026-09-13",
+      "type": "update",
+      "app": "everytime-reminder",
+      "title": "수업 알리미 1.0.22 — 다국어 표시 이름 및 안정화",
+      "body": "일정 채팅, 시간표, 알림 안정성을 개선하고 다국어 표시 이름(한국어·영어·일본어·아랍어·히브리어)을 반영한 업데이트를 심사에 제출했습니다.",
+      "version": "1.0.22",
+      "status": "submitted"
+    },
+    {
+      "date": "2026-09-11",
+      "type": "news",
+      "app": "everytime-reminder",
+      "title": "Android 플랫폼(Play Console) 출시 작업 시작",
+      "description": "수업 알리미가 iOS에 이어 Android 출시 버전 준비에 돌입했습니다.",
+      "version": "1.0.23",
+      "status": "developing"
+    },
+    {
+      "date": "2026-09-10",
+      "type": "release",
+      "appId": "everytime-reminder",
+      "title": "수업 알리미 1.0.21 → 1.0.22 빌드 30 업로드",
+      "body": "새 빌드(1.0.22+30)를 업로드하고 App Privacy·라우터 privacy 정책 등 메타데이터를 갱신해 심사를 다시 통과했습니다. READY_FOR_REVIEW 상태.",
+      "version": "1.0.22",
+      "status": "submitted"
+    },
+    {
+      "date": "2026-09-08",
+      "type": "release",
+      "appId": "auto-pomodoro",
+      "title": "auto pomodoro 활성화 — 모든 국가/지역 배포 재개",
+      "description": "build는 Ready for Distribution이었으나 앱 수준 sale이 진단되어 Pricing & Availability로 다시 판매 활성화.",
+      "version": "1.0",
+      "status": "released"
+    },
+    {
+      "date": "2026-09-07",
+      "type": "news",
+      "appId": "everytime-reminder",
+      "title": "Appodeal 광고 SDK 통합 완료 — 첫 광고 노출 확인",
+      "body": "Appodeal SDK를 통합해 실제 배너 테스트 노출(First Ad Impression)을 확인했습니다. CMP는 VPN 옵션 트처럼 해소돼 Publish 진행 중.",
+      "version": "1.0.21",
+      "status": "released"
+    },
+    {
+      "date": "2026-08-30",
+      "type": "release",
+      "appId": "risesync",
+      "title": "RiseSync 첫 빌드.build(90→91) 재제출",
+      "body": "이미지 거부(2.1 List·2.5.4 audio)를 해결하기 위해 오디오 백그라운드 모드를 제거한 새 빌드 91을 선택해 재제출. 스크린샷·리뷰 노트 교체 작성.",
+      "version": "1.0",
+      "status": "submitted"
+    },
+    {
+      "date": "2026-08-30",
+      "type": "release",
+      "appId": "harugirok",
+      "title": "harugirok 첫 출시 — 저널링 앱 심리 제출",
+      "body": "데일리 저널링 앱 harugirok의 첫 빌드를 App Review에 제출했습니다.",
+      "version": "1.0",
+      "status": "submitted"
+    }
+  ]
+}
