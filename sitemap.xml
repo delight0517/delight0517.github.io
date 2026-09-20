@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://delight0517.github.io/</loc>
-    <lastmod>2026-09-05</lastmod>
-  </url>
-</urlset>
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:urlset xmlns:ns0="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <ns0:url>
+    <ns0:loc>https://delight0517.github.io/</ns0:loc>
+    <ns0:lastmod>2026-09-05</ns0:lastmod>
+  </ns0:url>
+<ns0:url><ns0:loc>https://delight0517.github.io/risesync-premium</ns0:loc><ns0:lastmod>2026-09-20</ns0:lastmod><ns0:priority>0.9</ns0:priority></ns0:url></ns0:urlset>
