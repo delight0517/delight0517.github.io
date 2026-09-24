@@ -26,7 +26,8 @@ def ping():
         with urllib.request.urlopen(req, timeout=30) as response:
             print(f"IndexNow accepted {len(urls)} sitemap URLs: HTTP {response.status}")
     except Exception as e:
-        print(f"IndexNow Ping Failed: {e}")
+        print(f"IndexNow submission failed: {e}")
+        raise
 
 if __name__ == "__main__":
     ping()
