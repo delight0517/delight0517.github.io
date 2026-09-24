@@ -7,6 +7,8 @@ on:
     paths:
       - '**.html'
       - 'sitemap.xml'
+      - 'scripts/indexnow_ping.py'
+      - '.github/workflows/seo_autopush.yml'
   schedule:
     - cron: '0 0 * * 1' # 매주 월요일 자정에 정기적으로 한 번 더 핑 전송 (방치 방지)
   workflow_dispatch: # GitHub 웹사이트에서 수동으로 버튼을 눌러서 실행 가능
@@ -23,15 +25,10 @@ jobs:
         with:
           python-version: '3.x'
           
-      - name: 📡 Google에 사이트맵 핑(Ping) 전송
+      - name: 🔎 사이트맵 공개 상태 확인
         run: |
-          echo "구글에 사이트맵 업데이트를 알립니다..."
-          HTTP_STATUS=$(curl -o /dev/null -s -w "%{http_code}\n" "https://www.google.com/ping?sitemap=https://delight0517.github.io/sitemap.xml")
-          if [ "$HTTP_STATUS" -eq 200 ]; then
-            echo "✅ 구글 핑 전송 성공!"
-          else
-            echo "⚠️ 구글 핑 전송 실패 (HTTP $HTTP_STATUS)"
-          fi
+          curl --fail --silent --show-error --output /dev/null "https://delight0517.github.io/sitemap.xml"
+          echo "Sitemap is public; Google can discover it through robots.txt or Search Console."
 
       - name: 🚀 IndexNow (Bing/Yandex 등) 자동 색인 전송
         run: |
