@@ -55,6 +55,20 @@
     .cta:hover{background:var(--accent);color:#111}
     .cta.secondary{border-color:var(--line);color:var(--paper)}.cta.secondary:hover{background:rgba(255,255,255,.08);color:var(--paper)}
     .contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.contact-actions .cta{margin-top:0}
+    .brief-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .brief-field{display:grid;gap:8px;color:var(--muted);font-size:12px}
+    .brief-field.full,.brief-submit,.brief-result{grid-column:1/-1}
+    .brief-field input,.brief-field select,.brief-field textarea,.brief-result textarea{width:100%;min-height:48px;padding:13px 14px;border:1px solid var(--line);border-radius:2px;background:rgba(255,255,255,.025);color:var(--paper);font:inherit;font-size:14px;line-height:1.5}
+    .brief-field textarea,.brief-result textarea{min-height:108px;resize:vertical}
+    .brief-field input:focus,.brief-field select:focus,.brief-field textarea:focus,.brief-result textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
+    .brief-field select option{background:#111;color:var(--paper)}
+    .brief-submit,.brief-result-actions button{min-height:48px;padding:0 18px;border:1px solid rgba(200,226,180,.62);background:transparent;color:var(--accent);font:inherit;font-size:12px;text-align:left;cursor:pointer;transition:background .2s,color .2s}
+    .brief-submit:hover,.brief-result-actions button:hover{background:var(--accent);color:#111}
+    .brief-result{padding:20px;border:1px solid var(--line);background:rgba(255,255,255,.025)}
+    .brief-result p{margin:0 0 12px;color:var(--muted);font-size:12px}
+    .brief-result-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .brief-result-actions a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);font-size:12px}
+    .brief-result-actions a:hover{border-color:var(--accent);color:var(--accent)}
     .section{padding-block:clamp(56px,8vw,104px);border-top:1px solid var(--line)}
     .section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:32px}
     .section-head h2{margin:9px 0 0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,5vw,56px);font-weight:400;line-height:1.06;letter-spacing:-.035em}
@@ -87,6 +101,7 @@
     .closing .contact-actions{justify-content:center;margin-top:26px}
     footer{padding:22px 0 30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}
     @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:76px}.hero-note{max-width:420px}.services{grid-template-columns:1fr}.service{min-height:0}.service h3{margin-top:28px}.section-head{display:block}.section-head p{margin-top:13px}.steps{grid-template-columns:1fr;gap:20px}.faq{grid-template-columns:1fr;gap:24px}}
+    @media(max-width:600px){.brief-form{grid-template-columns:1fr}.brief-field.full,.brief-submit,.brief-result{grid-column:auto}.brief-result-actions{display:grid;grid-template-columns:1fr}.brief-result-actions a,.brief-result-actions button{justify-content:center;min-height:48px}}
     @media(max-width:520px){header{height:68px}.nav{gap:14px;font-size:11px}.nav a:first-child{display:none}.examples{grid-template-columns:1fr}.example{min-height:170px}.hero{padding-bottom:66px}footer{display:block}footer span{display:block;margin-top:6px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
   </style>
@@ -141,6 +156,30 @@
         </div>
       </section>
 
+      <section class="section" id="project-brief" aria-labelledby="brief-title">
+        <div class="section-head"><div><div class="kicker">Start with what you know</div><h2 id="brief-title">문의 내용을 먼저 정리해요</h2></div><p>정해지지 않은 항목은 비워도 괜찮습니다. 작성한 내용은 이 브라우저에서만 초안으로 만들고, 직접 확인한 뒤 보내세요.</p></div>
+        <form class="brief-form" id="brief-form">
+          <label class="brief-field">필요한 도움
+            <select name="service"><option>웹사이트 제작</option><option>앱·서비스 기획</option><option>앱 제작</option><option>팝업스토어 기획</option><option>아직 잘 모르겠어요</option></select>
+          </label>
+          <label class="brief-field">희망 일정·예산
+            <input name="timing" placeholder="예: 11월 공개, 예산 미정">
+          </label>
+          <label class="brief-field full">무엇을 만들고 싶나요?
+            <textarea name="goal" rows="3" placeholder="해결하고 싶은 문제나 프로젝트 목표를 편하게 적어 주세요."></textarea>
+          </label>
+          <label class="brief-field full">대상과 필요한 기능·화면
+            <textarea name="scope" rows="3" placeholder="누가 사용하고, 꼭 필요한 기능이나 페이지가 무엇인지 적어 주세요. 아직 정해지지 않았다면 비워도 됩니다."></textarea>
+          </label>
+          <button class="brief-submit" type="submit">문의 초안 만들기 ↗</button>
+          <div class="brief-result" id="brief-result" hidden>
+            <p id="brief-status" role="status">초안은 이 브라우저에서만 만들어집니다. 내용을 확인하고 원하는 방법으로 보내세요.</p>
+            <textarea id="brief-draft" aria-label="프로젝트 문의 초안" readonly></textarea>
+            <div class="brief-result-actions"><button type="button" id="copy-brief">문의 내용 복사</button><a id="email-brief" href="mailto:rogan2534@gmail.com">이메일로 보내기 ↗</a><a href="https://open.kakao.com/me/rogan_kim" target="_blank" rel="noopener noreferrer">카카오톡 문의 ↗</a></div>
+          </div>
+        </form>
+      </section>
+
       <section class="section faq" aria-labelledby="faq-title">
         <h2 id="faq-title">자주 묻는 질문</h2>
         <div>
@@ -162,5 +201,25 @@
     </main>
     <footer><a href="/">GeunHu Kim — Work archive</a><span>© 2026 Kim GeunHu</span></footer>
   </div>
+  <script>
+    const briefForm=document.getElementById("brief-form");
+    const briefResult=document.getElementById("brief-result");
+    const briefDraft=document.getElementById("brief-draft");
+    const emailBrief=document.getElementById("email-brief");
+    briefForm.addEventListener("submit",function(event){
+      event.preventDefault();
+      const values=new FormData(briefForm);
+      const fields=[["필요한 도움",values.get("service")],["프로젝트 목표",values.get("goal")],["대상과 필요한 결과물",values.get("scope")],["희망 일정·예산",values.get("timing")]];
+      const draft="안녕하세요. 프로젝트 상담을 요청드립니다.\n\n"+fields.map(([label,value])=>label+": "+(String(value||"").trim()||"아직 정하지 않았어요")).join("\n");
+      briefDraft.value=draft;
+      emailBrief.href="mailto:rogan2534@gmail.com?subject="+encodeURIComponent("프로젝트 상담")+"&body="+encodeURIComponent(draft);
+      briefResult.hidden=false;
+    });
+    document.getElementById("copy-brief").addEventListener("click",async function(){
+      const status=document.getElementById("brief-status");
+      try{await navigator.clipboard.writeText(briefDraft.value);status.textContent="문의 내용을 복사했어요. 카카오톡 창에 붙여 넣어 보내면 됩니다."}
+      catch(error){briefDraft.focus();briefDraft.select();status.textContent="자동 복사를 지원하지 않아 내용이 선택됐어요. 직접 복사해 주세요."}
+    });
+  </script>
 </body>
 </html>
