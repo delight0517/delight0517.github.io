@@ -470,16 +470,16 @@
       });
       requestAnimationFrame(render);
     }
-    let revealStarted=Date.now(),minSplash=1150,revealTimer=0,revealPending=false,loaderFinished=false;
+    let revealStarted=Date.now(),minSplash=250,revealTimer=0,revealPending=false,loaderFinished=false;
     function reveal(){
       if(body.classList.contains("revealed")||revealPending)return;
       revealPending=true;clearTimeout(revealTimer);intro.classList.add("closing");
       setTimeout(function(){
         body.classList.remove("locked");body.classList.add("revealed");root.style.overflow="";layout(true);
         requestAnimationFrame(function(){layout(true);intro.classList.add("gone");setTimeout(function(){intro.remove()},700)});
-      },reduced?0:900);
+      },reduced?0:260);
     }
-    function startIntro(){bar.style.transform="scaleX(1)";splash.classList.add("out");setTimeout(function(){splash.remove()},950);revealTimer=setTimeout(reveal,reduced?80:950)}
+    function startIntro(){bar.style.transform="scaleX(1)";splash.classList.add("out");setTimeout(function(){splash.remove()},650);revealTimer=setTimeout(reveal,reduced?80:260)}
     function finishLoading(){if(loaderFinished)return;loaderFinished=true;setTimeout(startIntro,Math.max(0,minSplash-(Date.now()-revealStarted)))}
     function startPage(){
       if(reduced){progressDone=works.length;finishLoading();return}
