@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import urllib.request
 import json
 import xml.etree.ElementTree as ET
@@ -6,7 +7,7 @@ import xml.etree.ElementTree as ET
 HOST = "delight0517.github.io"
 KEY = "8f3a5e8c9d2b4f6a9e1c2d3b4f5a6e7d" # generated random hex for indexnow
 KEY_LOCATION = f"https://{HOST}/{KEY}.txt"
-SITEMAP = f"https://{HOST}/sitemap.xml"
+SITEMAP = os.environ.get("INDEXNOW_SITEMAP_URL", f"https://{HOST}/sitemap.xml")
 
 def ping():
     url = "https://api.indexnow.org/indexnow"

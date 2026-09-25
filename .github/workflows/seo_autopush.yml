@@ -25,12 +25,44 @@ jobs:
         with:
           python-version: '3.x'
           
-      - name: 🔎 사이트맵 공개 상태 확인
+      - name: 🔎 현재 커밋의 사이트맵 배포 확인
+        env:
+          SITEMAP_URL: "https://delight0517.github.io/sitemap.xml?v=${{ github.sha }}"
         run: |
-          curl --fail --silent --show-error --output /dev/null "https://delight0517.github.io/sitemap.xml"
-          echo "Sitemap is public; Google can discover it through robots.txt or Search Console."
+          python - <<'PY'
+          import os, time, urllib.request, xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          def urls(data):
+              root = ET.fromstring(data)
+              return {node.text for node in root.iter() if node.tag.endswith("}loc") and node.text}
+
+          expected = urls(Path("sitemap.xml").read_bytes())
+          if not expected:
+              raise SystemExit("Repository sitemap has no URLs")
+          url = os.environ["SITEMAP_URL"]
+          deadline = time.monotonic() + 240
+          while True:
+              try:
+                  request = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
+                  with urllib.request.urlopen(request, timeout=20) as response:
+                      published = urls(response.read())
+                  missing = expected - published
+                  if not missing:
+                      print(f"Published sitemap includes all {len(expected)} repository URLs.")
+                      break
+                  status = f"{len(missing)} repository URLs are not live yet"
+              except Exception as error:
+                  status = f"Public sitemap is not ready: {error}"
+              if time.monotonic() >= deadline:
+                  raise SystemExit(f"Timed out waiting for the committed sitemap: {status}")
+              print(f"{status}; retrying in 10 seconds")
+              time.sleep(10)
+          PY
 
       - name: 🚀 IndexNow (Bing/Yandex 등) 자동 색인 전송
+        env:
+          INDEXNOW_SITEMAP_URL: "https://delight0517.github.io/sitemap.xml?v=${{ github.sha }}"
         run: |
           echo "IndexNow 프로토콜을 통해 즉각 색인을 요청합니다..."
           if [ -f "scripts/indexnow_ping.py" ]; then
