@@ -453,7 +453,7 @@
       const p=Math.max(0,Math.min(1,scrollY/(innerHeight*.16))),target=p*Math.min(64,radius*.12);
       camZ+=(target-camZ)*.075;
       document.getElementById("world").style.transform="translateZ("+camZ+"px) rotateY("+dragX+"deg) rotateX("+sx+"deg)";
-      const headline=document.getElementById("headline");headline.style.transform="rotateX("+(-sx)+"deg) rotateY("+(-dragX)+"deg) translateZ("+(radius*.62)+"px)";headline.style.opacity=String(Math.max(0,1-p*.55));
+      const headline=document.getElementById("headline");headline.style.transform="rotateX("+(-sx)+"deg) rotateY("+(-dragX)+"deg) translateZ("+(radius*1.04)+"px)";headline.style.opacity=String(Math.max(0,1-p*.55));
       cardNodes.forEach(function(c){
         const cy=Math.cos(sy),syv=Math.sin(sy),cx=Math.cos(sx),sxv=Math.sin(sx);
         const x1=c.x*cy+c.z*syv,z1=-c.x*syv+c.z*cy,zf=c.y*sxv+z1*cx;
