@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 import subprocess
 import xml.etree.ElementTree as ET
@@ -12,16 +12,21 @@ NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
 
 def git_lastmod(path: str) -> str:
+    dates = []
     try:
         result = subprocess.run(
             ["git", "-C", str(REPO), "log", "-1", "--format=%cI", "--", path],
             capture_output=True, text=True, timeout=10, check=True,
         )
         if result.stdout.strip():
-            return result.stdout.strip()[:10]
+            dates.append(datetime.fromisoformat(result.stdout.strip()).astimezone().date())
     except (OSError, subprocess.SubprocessError):
         pass
-    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    try:
+        dates.append(datetime.fromtimestamp((REPO / path).stat().st_mtime).astimezone().date())
+    except OSError:
+        dates.append(datetime.now().astimezone().date())
+    return max(dates).isoformat()
 
 
 def local_public_pages() -> list[tuple[str, str]]:
