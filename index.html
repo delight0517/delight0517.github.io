@@ -288,7 +288,7 @@
       <button type="button" data-action="contact">외주 의뢰</button>
       <button type="button" class="share-action" data-action="share">아카이브 공유 ↗</button>
     </nav>
-    <div class="addr">앱 · 웹사이트 · 서비스 · 팝업스토어 기획<br><a href="mailto:rocan2534@gmail.com">rocan2534@gmail.com</a></div>
+    <div class="addr">앱 · 웹사이트 · 서비스 · 팝업스토어 기획<br><a href="mailto:rogan2534@gmail.com">rogan2534@gmail.com</a></div>
   </section>
   <div class="share-status" id="shareStatus" role="status" aria-live="polite"></div>
 
@@ -328,7 +328,7 @@
         <li><a href="https://delight0517.github.io/ox-quiz-web/">학습 OX 퀴즈 — 브라우저 체험판</a></li>
         <li><a href="https://delight0517.github.io/pomoflow/">PomoFlow — 브라우저 포모도로 타이머</a></li>
       </ul>
-      <p>웹사이트 제작, 앱·서비스 기획, 팝업스토어 기획 의뢰: <a href="mailto:rocan2534@gmail.com">이메일 문의</a></p>
+      <p>웹사이트 제작, 앱·서비스 기획, 팝업스토어 기획 의뢰: <a href="mailto:rogan2534@gmail.com">이메일 문의</a></p>
     </section>
   </noscript>
 
@@ -512,7 +512,7 @@
       document.getElementById("litTitle").textContent=w.title;document.getElementById("litWhere").textContent=w.place+(w.tags&&w.tags.length?" · "+w.tags.join(" · "):"");document.getElementById("litNote").textContent=w.note;
       const actions=document.getElementById("litActions");actions.innerHTML="";
       if(w.href){const a=document.createElement("a");a.href=w.href;a.target="_blank";a.rel="noopener";a.textContent=w.label||"작업 열기";actions.appendChild(a)}
-      const mail=document.createElement("a");mail.className="quiet";mail.href="mailto:rocan2534@gmail.com?subject="+encodeURIComponent(w.title+" 관련 문의");mail.textContent="비슷한 작업 문의";actions.appendChild(mail);
+      const mail=document.createElement("a");mail.className="quiet";mail.href="mailto:rogan2534@gmail.com?subject="+encodeURIComponent(w.title+" 관련 문의");mail.textContent="비슷한 작업 문의";actions.appendChild(mail);
       const source=origin||document.querySelector('.card[data-idx="'+index+'"]');
       const from=source&&source.getBoundingClientRect(),to=plate.getBoundingClientRect();
       body.classList.add("lit");lit.setAttribute("aria-hidden","false");lit.scrollTop=0;document.getElementById("menuBtn").setAttribute("aria-hidden","true");
@@ -532,7 +532,7 @@
     document.getElementById("menu").addEventListener("click",function(e){
       const b=e.target.closest("[data-action]");if(!b)return;
       if(b.dataset.action==="share"){shareArchive();return}
-      const action=b.dataset.action;if(action==="contact"){closeMenu();window.location.href="mailto:rocan2534@gmail.com?subject="+encodeURIComponent("웹사이트·앱·팝업스토어 기획 문의");return}
+      const action=b.dataset.action;if(action==="contact"){closeMenu();window.location.href="mailto:rogan2534@gmail.com?subject="+encodeURIComponent("웹사이트·앱·팝업스토어 기획 문의");return}
       showGrid(action==="all"?"all":action);
     });
     document.querySelectorAll(".filter").forEach(function(b){b.addEventListener("click",function(){setFilter(b.dataset.filter)})});
