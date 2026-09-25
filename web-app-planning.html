@@ -48,6 +48,8 @@
     .hero-note strong{display:block;color:var(--paper);font-size:14px;font-weight:450;margin-bottom:7px}
     .cta{display:inline-flex;align-items:center;gap:20px;min-height:48px;padding:0 18px;margin-top:30px;border:1px solid rgba(200,226,180,.62);border-radius:999px;color:var(--accent);font-size:12px;transition:background .2s,color .2s}
     .cta:hover{background:var(--accent);color:#111}
+    .cta.secondary{border-color:var(--line);color:var(--paper)}.cta.secondary:hover{background:rgba(255,255,255,.08);color:var(--paper)}
+    .contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}.contact-actions .cta{margin-top:0}
     .section{padding-block:clamp(56px,8vw,104px);border-top:1px solid var(--line)}
     .section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:32px}
     .section-head h2{margin:9px 0 0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(30px,5vw,56px);font-weight:400;line-height:1.06;letter-spacing:-.035em}
@@ -77,7 +79,7 @@
     .closing{padding-block:clamp(60px,9vw,112px);border-top:1px solid var(--line);text-align:center}
     .closing h2{max-width:760px;margin:0 auto 14px;font-family:Georgia,"Times New Roman",serif;font-size:clamp(34px,7vw,76px);font-weight:400;line-height:1.03;letter-spacing:-.04em}
     .closing p{margin:0;color:var(--muted);font-size:13px}
-    .closing .cta{margin-top:26px}
+    .closing .contact-actions{justify-content:center;margin-top:26px}
     footer{padding:22px 0 30px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}
     @media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:76px}.hero-note{max-width:420px}.services{grid-template-columns:1fr}.service{min-height:0}.service h3{margin-top:28px}.section-head{display:block}.section-head p{margin-top:13px}.steps{grid-template-columns:1fr;gap:20px}.faq{grid-template-columns:1fr;gap:24px}}
     @media(max-width:520px){header{height:68px}.nav{gap:14px;font-size:11px}.nav a:first-child{display:none}.examples{grid-template-columns:1fr}.example{min-height:170px}.hero{padding-bottom:66px}footer{display:block}footer span{display:block;margin-top:6px}}
@@ -96,7 +98,10 @@
           <div class="eyebrow">Websites · Apps · Experiences</div>
           <h1 id="page-title">아이디어를<br>쓸 수 있는 경험으로.</h1>
           <p class="lead">김근후의 앱과 웹 작업을 바탕으로, 막연한 아이디어를 웹사이트 제작과 앱·서비스 기획으로 구체화합니다. 팝업스토어 기획도 고객이 만나는 순간부터 온라인 접점까지 함께 정리합니다.</p>
-          <a class="cta" href="mailto:rocan2534@gmail.com?subject=%EC%83%88%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%9D%98%EB%A2%B0">프로젝트 이야기하기 <span aria-hidden="true">↗</span></a>
+          <div class="contact-actions">
+            <a class="cta" href="mailto:rocan2534@gmail.com?subject=%EC%83%88%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%9D%98%EB%A2%B0">이메일로 문의 <span aria-hidden="true">↗</span></a>
+            <a class="cta secondary" href="https://open.kakao.com/me/rogan_kim" target="_blank" rel="noopener noreferrer">카카오톡 문의 <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
         <aside class="hero-note"><strong>작업 범위를 같이 정리해요</strong>필요한 결과물과 일정, 현재 고민을 알려주시면 가능한 진행 범위를 먼저 이야기합니다.</aside>
       </section>
@@ -144,7 +149,10 @@
         <div class="kicker">Tell me about your project</div>
         <h2 id="contact-title">다음 아이디어를<br>함께 구체화해 볼까요?</h2>
         <p>웹사이트 제작 · 앱·서비스 기획 · 팝업스토어 기획</p>
-        <a class="cta" href="mailto:rocan2534@gmail.com?subject=%EC%83%88%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%9D%98%EB%A2%B0">rocan2534@gmail.com <span aria-hidden="true">↗</span></a>
+        <div class="contact-actions">
+          <a class="cta" href="mailto:rocan2534@gmail.com?subject=%EC%83%88%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%9D%98%EB%A2%B0">이메일로 문의 <span aria-hidden="true">↗</span></a>
+          <a class="cta secondary" href="https://open.kakao.com/me/rogan_kim" target="_blank" rel="noopener noreferrer">카카오톡 문의 <span aria-hidden="true">↗</span></a>
+        </div>
       </section>
     </main>
     <footer><a href="/">GeunHu Kim — Work archive</a><span>© 2026 Kim GeunHu</span></footer>
