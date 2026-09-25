@@ -17,9 +17,9 @@
 - [x] 공개 Build 7에서 390×844 모바일 첫 화면(문의 CTA 노출, 목록 아이콘 비노출)과 Chrome 데스크톱 3D 화면·전체 목록·웹 필터를 확인.
 - [ ] 김근후 표기, 소개 문구, 문의 이메일과 의뢰 범위 최종 확인.
 - [x] Search Console에서 사이트 소유권 확인, `https://delight0517.github.io/sitemap.xml` 제출, 홈페이지 색인 요청 접수 확인.
-- [ ] Search Console 사이트맵 보고서는 아직 “읽을 수 없음”으로 표시됨. 공개 응답은 HTTP 200, XML 파싱 정상, 9개 URL 모두 HTTP 200. 2026-09-25 실시간 URL 테스트에서는 sitemap URL도 “Google에 등록할 수 있음”으로 확인됨. Google의 사이트맵 재처리 결과는 미확인.
+- [ ] Search Console 사이트맵 보고서는 재제출 후에도 “가져올 수 없음”, 발견 페이지 0개. 공개 응답은 HTTP 200, XML 파싱 정상, 루트 10개 URL 모두 HTTP 200. Search Console의 마지막 읽기 날짜만 2026-09-26으로 바뀌었고 원인은 계속 표시되지 않아 추가 재제출 없이 다음 처리 상태를 기다린다.
 - [x] 2026-09-26 Search Console 재확인: `/sitemap.xml`, `/jev-evidence-kit/sitemap.xml`, `/releasepilot-reports/sitemap.xml` 모두 “가져올 수 없음”, 발견 페이지 0개. 공개 루트 사이트맵은 HTTP 200·XML 유효·10개 URL이며 그 10개 주소는 모두 HTTP 200. Google 측 읽기 상태는 별도 미해결로 기록하고, URL 불일치를 바로잡은 루트 사이트맵을 한 번 갱신 요청할 것.
-- [x] 2026-09-26: RiseSync 소개 파일·아카이브 링크·사이트맵이 가리키는 주소를 `.html` 기준으로 통일한 뒤, Search Console에서 `/sitemap.xml`을 한 번 재제출. “사이트맵이 제출됨” 확인; 처리 완료 및 발견 페이지 수는 대기 중.
+- [x] 2026-09-26: RiseSync 소개 파일·아카이브 링크·사이트맵이 가리키는 주소를 `.html` 기준으로 통일한 뒤, Search Console에서 `/sitemap.xml`을 한 번 재제출. “사이트맵이 제출됨” 확인; 같은 날 마지막 읽기 날짜가 갱신됐지만 보고서는 “가져올 수 없음”, 발견 페이지 0개로 유지.
 - [ ] Naver Search Advisor는 이용약관 동의 화면까지 확인. 법적 약관 승인은 본인 확인 후 진행해야 하므로 사이트 미등록 상태.
 - [ ] 홈페이지 검사에는 “크롤링됨 - 현재 색인이 생성되지 않음”으로 표시됨. 우선순위 크롤링 요청은 접수됐고, 실제 색인은 미확인.
 - [x] 2026-09-26 Search Console: `/web-app-planning.html` 실시간 테스트에서 “URL을 Google에 등록할 수 있음”; 새 URL 색인 요청이 우선 크롤링 대기열에 접수됨. 실제 색인은 미확인.
