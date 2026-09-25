@@ -1,49 +1,76 @@
 #!/usr/bin/env python3
-import os
-from pathlib import Path
 from datetime import datetime, timezone
+from pathlib import Path
 import subprocess
+import xml.etree.ElementTree as ET
+from xml.sax.saxutils import escape
 
 REPO = Path(__file__).resolve().parent.parent
 BASE_URL = "https://delight0517.github.io"
+SITEMAP = REPO / "sitemap.xml"
+NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
-def git_lastmod(rel_path: str) -> str:
+
+def git_lastmod(path: str) -> str:
     try:
-        out = subprocess.run(
-            ["git", "-C", str(REPO), "log", "-1", "--format=%cI", "--", rel_path],
-            capture_output=True, text=True, timeout=10,
-        ).stdout.strip()
-        if out:
-            return out[:10]
-    except Exception:
+        result = subprocess.run(
+            ["git", "-C", str(REPO), "log", "-1", "--format=%cI", "--", path],
+            capture_output=True, text=True, timeout=10, check=True,
+        )
+        if result.stdout.strip():
+            return result.stdout.strip()[:10]
+    except (OSError, subprocess.SubprocessError):
         pass
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-def generate():
-    urls = []
-    # Root index.html
-    index_file = REPO / "index.html"
-    if index_file.exists():
-        urls.append((f"{BASE_URL}/", git_lastmod("index.html")))
 
-    # We can also read other html files in root if needed
-    for html_file in REPO.glob("*.html"):
-        if html_file.name == "index.html":
+def local_public_pages() -> list[tuple[str, str]]:
+    paths = [REPO / "index.html"]
+    paths += sorted(path for path in REPO.glob("*.html") if not path.name.startswith("google"))
+    help_dir = REPO / "everytime-reminder"
+    paths += sorted(path for path in help_dir.glob("*.html") if path.name != "privacy.html")
+    pages = []
+    for path in paths:
+        if not path.is_file():
             continue
-        urls.append((f"{BASE_URL}/{html_file.name}", git_lastmod(html_file.name)))
+        relative = path.relative_to(REPO).as_posix()
+        url_path = "/" if relative == "index.html" else f"/{relative}"
+        if relative == "everytime-reminder/index.html":
+            url_path = "/everytime-reminder/"
+        pages.append((BASE_URL + url_path, relative))
+    return pages
+
+
+def generate() -> None:
+    existing: dict[str, dict[str, str]] = {}
+    if SITEMAP.exists():
+        root = ET.parse(SITEMAP).getroot()
+        for item in root.findall("s:url", NS):
+            loc = item.findtext("s:loc", namespaces=NS)
+            if not loc or not loc.startswith(BASE_URL + "/"):
+                continue
+            entry = {}
+            for tag in ("lastmod", "priority"):
+                value = item.findtext(f"s:{tag}", namespaces=NS)
+                if value:
+                    entry[tag] = value
+            existing[loc] = entry
+
+    for url, path in local_public_pages():
+        existing.setdefault(url, {})["lastmod"] = git_lastmod(path)
 
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for loc, lastmod in urls:
-        lines.append("  <url>")
-        lines.append(f"    <loc>{loc}</loc>")
-        lines.append(f"    <lastmod>{lastmod}</lastmod>")
-        lines.append("  </url>")
+    for url, fields in existing.items():
+        entry = f"  <url><loc>{escape(url)}</loc>"
+        for tag in ("lastmod", "priority"):
+            if fields.get(tag):
+                entry += f"<{tag}>{escape(fields[tag])}</{tag}>"
+        lines.append(entry + "</url>")
     lines.append("</urlset>")
-    
-    sitemap_path = REPO / "sitemap.xml"
-    sitemap_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"Generated {sitemap_path} with {len(urls)} URLs")
+    SITEMAP.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"Generated {SITEMAP} with {len(existing)} URLs")
+
 
 if __name__ == "__main__":
     generate()
