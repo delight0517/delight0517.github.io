@@ -154,6 +154,7 @@
     .scrim{position:fixed;inset:0;z-index:0}
     .plate{position:relative;z-index:1;width:min(72vw,860px,calc((100vh - 230px)*1.5));max-width:100%;transition:transform .62s var(--ease),opacity .42s}
     .shot{position:relative;width:100%;aspect-ratio:3/2;border-radius:2px;background:#0b0b0b;box-shadow:0 30px 90px rgba(0,0,0,.75);overflow:hidden}
+    .shot.live-screen{aspect-ratio:3/2}
     .shot img{width:100%;height:100%;object-fit:cover}
     .shot img.portrait{object-fit:contain;background:#070707}
     .shot iframe{display:block;width:100%;height:100%;border:0;background:#fff}
@@ -222,6 +223,7 @@
       .cue{display:none}
       #lit{display:block;padding:calc(52px + var(--safe-top)) calc(var(--pad) + var(--safe-right)) calc(var(--pad) + var(--safe-bottom)) calc(var(--pad) + var(--safe-left))}
       .plate{width:100%;max-width:560px;margin:0 auto}
+      .shot.live-screen{aspect-ratio:auto;height:min(56vh,480px)}
       #litTitle{font-size:clamp(20px,5.6vw,26px)}
       #litNote{font-size:12.5px;line-height:1.58}
       .close{top:8px;right:8px}
@@ -498,7 +500,7 @@
     }
     function openLightbox(index,origin){
       const w=works[index];if(!w)return;focused=index;
-      const shot=document.querySelector("#lit .shot");shot.querySelectorAll("img,iframe").forEach(function(node){node.remove()});
+      const shot=document.querySelector("#lit .shot");shot.classList.toggle("live-screen",Boolean(w.href&&!w.href.includes("apps.apple.com")));shot.querySelectorAll("img,iframe").forEach(function(node){node.remove()});
       if(w.href&&!w.href.includes("apps.apple.com")){
         const frame=document.createElement("iframe");frame.src=w.screenHref||w.href;frame.title=w.title+" 실제 화면";frame.loading="eager";frame.referrerPolicy="strict-origin-when-cross-origin";frame.allow="clipboard-read; clipboard-write";shot.insertBefore(frame,shot.querySelector(".close"));
       }else{
