@@ -75,6 +75,7 @@
     .card figure:after{content:"";position:absolute;inset:0;border-radius:3px;background:rgba(0,0,0,var(--d,0));box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);pointer-events:none}
     .card img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease-out,transform .5s var(--ease)}
     .card img.portrait{object-fit:contain;background:#070707}
+    .screen-proof{position:absolute;top:5px;left:5px;z-index:2;max-width:calc(100% - 10px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:3px 5px;border:1px solid rgba(255,255,255,.28);border-radius:2px;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);color:#fff;font:500 7px/1.1 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.06em;pointer-events:none}
     body.revealed .card img{opacity:1}
     .card:hover img{transform:scale(1.045)}
     .vig{position:fixed;inset:0;z-index:12;pointer-events:none;background:radial-gradient(ellipse 88% 92% at 50% 50%,transparent 48%,rgba(0,0,0,.26) 80%,rgba(0,0,0,.72) 100%);transition:opacity .6s}
@@ -160,6 +161,8 @@
     .meta{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(22px,3.2vw,48px);padding-top:16px}
     #litTitle{margin:0 0 6px;font-family:"Playfair Display","Times New Roman",serif;font-size:clamp(22px,2.15vw,32px);font-weight:400;line-height:1.08;letter-spacing:-.01em}
     #litWhere{color:rgba(244,242,239,.62);font-size:13px}
+    #litSource{margin-top:8px;color:rgba(244,242,239,.56);font-size:11px;overflow-wrap:anywhere}
+    #litSource a{text-decoration:underline;text-underline-offset:3px}
     #litNote{margin:0;color:rgba(244,242,239,.92);font-size:13.5px;line-height:1.55}
     .lit-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
     .lit-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 15px;border:1px solid rgba(244,242,239,.55);border-radius:999px;font-size:11px;letter-spacing:.02em;transition:background .2s,color .2s}
@@ -262,7 +265,7 @@
   </header>
   <aside class="bio chrome" aria-label="작업자 소개">
     <div class="who"><img id="avatar" src="https://img1.kakaocdn.net/thumb/C128x128.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/8RKx/image/XUiLQ38WRFIXaJQm7VpkJIbxyUw.png" alt="김근후 프로필"><b>김근후</b></div>
-    <p>앱과 웹 프로젝트를 기획하고 구현한 결과를 모았습니다. 카드에서 실제 화면을 살펴보고, 공개된 서비스로 바로 이동할 수 있습니다.</p>
+    <p>앱과 웹 프로젝트를 모았습니다. 카드는 공개 웹페이지 캡처나 App Store 스크린샷이며, 시제품과 예시 데이터는 따로 표시했습니다.</p>
     <div class="services"><span>App</span><span>Website</span><span>Product</span><span>Popup</span></div>
     <a class="contact-link" href="https://open.kakao.com/me/rogan_kim" target="_blank" rel="noopener noreferrer">카카오톡으로 문의 <span aria-hidden="true">↗</span></a>
     <a class="service-link" href="/web-app-planning.html">서비스 소개 <span aria-hidden="true">↗</span></a>
@@ -300,7 +303,7 @@
     <button class="scrim" type="button" aria-label="상세 보기 닫기" data-close></button>
     <article class="plate" id="plate">
       <div class="shot"><img id="litImage" alt=""><button class="close" type="button" data-close>닫기</button></div>
-      <div class="meta"><div><h2 id="litTitle"></h2><div id="litWhere"></div><div class="lit-actions" id="litActions"></div></div><p id="litNote"></p></div>
+      <div class="meta"><div><h2 id="litTitle"></h2><div id="litWhere"></div><div id="litSource"></div><div class="lit-actions" id="litActions"></div></div><p id="litNote"></p></div>
     </article>
   </section>
 
@@ -348,17 +351,17 @@
       {id:"pomoflow",title:"PomoFlow",type:"web",place:"Web app · Pomodoro",note:"브라우저에서 집중·휴식 사이클을 진행하는 타이머입니다. 소개 페이지는 기기 간 완료 통계와 설정 동기화, 앱처럼 설치하는 기능을 안내합니다.",href:"https://delight0517.github.io/pomoflow/",label:"PomoFlow 체험하기",shot:"/previews/pomoflow.jpg",tags:["Pomodoro","Web app"]},
       {id:"easypaster",title:"Easy Paster",type:"app",place:"macOS · App Store",note:"자주 쓰는 문장을 빠르게 붙여넣도록 돕는 macOS 생산성 도구입니다.",href:"https://apps.apple.com/kr/app/easy-paster/id6766851035",label:"App Store에서 보기",shot:"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d5/98/23/d5982365-880f-8a55-4b8f-9503cf5e6a15/Screenshot_2026-05-06_at_8.19.53_U202fPM.png/800x500bb.jpg",tags:["macOS","Utility"]},
       {id:"35closer",title:"35Closer Timer",type:"app",place:"macOS · App Store",note:"집중과 휴식 시간을 정리해 작업 리듬을 만드는 macOS 타이머입니다.",href:"https://apps.apple.com/us/app/35closer-timer/id6805697167?mt=12&uo=4",label:"App Store에서 보기",shot:"https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d9/06/40/d90640c4-86ef-5aa5-d213-a45ad1f3497b/35closer_shot_1280x800.png/800x500bb.jpg",tags:["Focus","macOS"]},
-      {id:"jev-evidence",title:"Jev Evidence Kit",type:"web",place:"Web app · AI comparison tool",note:"ChatGPT와 다른 AI 경로의 답변을 나란히 비교하는 무료 오프라인 도구입니다.",href:"https://jev-evidence-kit.rogan2534.chatgpt.site/",label:"Jev Evidence Kit 열기",shot:"/previews/jev-evidence.jpg",tags:["AI","Tool"]},
+      {id:"jev-evidence",title:"Jev Evidence Kit",type:"web",place:"Web app · AI comparison tool",note:"ChatGPT와 다른 AI 경로의 답변을 나란히 비교하는 무료 오프라인 도구입니다. 현재 미리보기에는 가상 예시가 포함되어 있습니다.",previewLabel:"웹사이트 · 가상 예시 포함",href:"https://jev-evidence-kit.rogan2534.chatgpt.site/",label:"Jev Evidence Kit 열기",shot:"/previews/jev-evidence.jpg",tags:["AI","Tool"]},
       {id:"app-studio",title:"Kim GeunHu App Studio",type:"web",place:"Website · App production",note:"앱 아이디어를 첫 결과물로 구체화하는 제작 안내 페이지입니다. 진행 범위와 조건을 살펴보고 상담할 수 있습니다.",href:"https://delight0517.github.io/releasepilot-reports/app-studio/",label:"App Studio 열기",shot:"/previews/app-studio.jpg",tags:["App","Planning"]},
       {id:"launchmate",title:"Launchmate",type:"web",place:"Website · App production",note:"앱 제작 35,000원부터. 상담 전화 없이 신청서로 의뢰하고, 범위·비용 합의 후 3일 안에 써볼 프로토타입을 목표로 App Store·Google Play 출시까지 준비합니다.",href:"https://launchmate-app-builders.rogan2534.chatgpt.site/",label:"서비스 페이지 열기",shot:"/previews/launchmate.jpg",tags:["App","Planning"]},
-      {id:"applypilot",title:"ApplyPilot",type:"web",place:"Web app · Game art careers",note:"게임 아트 신입·주니어를 위한 채용공고 탐색, 포트폴리오 맞춤 지원 준비, 지원 현황 관리 시제품입니다. 대시보드 데모는 실제 채용공고 API가 아직 연결되지 않은 상태입니다.",href:"https://applypilot-game-art-career.rogan2534.chatgpt.site/",label:"소개 페이지 보기",demoHref:"https://applypilot-game-art-career.rogan2534.chatgpt.site/demo",demoLabel:"대시보드 시제품 체험",shot:"/previews/applypilot.jpg",tags:["Career","Prototype"]},
+      {id:"applypilot",title:"ApplyPilot",type:"web",place:"Web app · Game art careers",note:"게임 아트 신입·주니어를 위한 채용공고 탐색, 포트폴리오 맞춤 지원 준비, 지원 현황 관리 시제품입니다. 대시보드 데모는 실제 채용공고 API가 아직 연결되지 않은 상태입니다.",previewLabel:"시제품 · 예시 데이터",href:"https://applypilot-game-art-career.rogan2534.chatgpt.site/",label:"소개 페이지 보기",demoHref:"https://applypilot-game-art-career.rogan2534.chatgpt.site/demo",demoLabel:"대시보드 시제품 체험",shot:"/previews/applypilot.jpg",tags:["Career","Prototype"]},
       {id:"meme-cabinet",title:"밈캐비닛",type:"web",place:"Website · Meme archive",note:"감정과 소리로 밈을 찾고, 유래와 원본 출처를 따라가는 밈 아카이브입니다.",href:"https://meme-cabinet.rogan2534.chatgpt.site/",label:"밈캐비닛 열기",shot:"/previews/meme-cabinet.jpg",tags:["Archive","Search"]},
       {id:"gil-local",title:"GIL 동네일",type:"web",place:"Web app · Local errands",note:"내 행선지와 겹치는 동네 픽업·배달·운반 요청을 찾아보는 지역 서비스입니다.",href:"https://gil-walk-local.rogan2534.chatgpt.site/",label:"서비스 열기",shot:"/previews/gil-local.jpg",tags:["Local","Service"]},
       {id:"gil-menuring",title:"GIL 메뉴링",type:"web",place:"Website · QR menu",note:"외국인 손님을 위한 다국어 QR 메뉴와 스티커 제작을 안내하는 서비스 페이지입니다.",href:"https://gil-neighborhood.rogan2534.chatgpt.site/",label:"서비스 페이지 열기",shot:"/previews/gil-menuring.jpg",tags:["Local business","Website"]},
       {id:"roomnow",title:"ROOMNOW",type:"web",place:"Web app · Hotel discovery",note:"검증된 숙소 이름과 주소를 바탕으로 서울 명동 호텔을 탐색하는 AI 추천 웹 앱입니다.",href:"https://roomnow.rogan2534.chatgpt.site/",label:"ROOMNOW 열기",shot:"/previews/roomnow.jpg",tags:["AI","Travel"]},
-      {id:"scholarcloud",title:"ScholarCloud Jobs",type:"web",place:"Website · Public demo",note:"장학금 검색과 대학생 아르바이트 탐색·지원 흐름을 나누어 소개하는 공개 데모입니다.",href:"https://delight0517.github.io/scholarshipcloud-demo/",label:"공개 데모 열기",shot:"/previews/scholarcloud.jpg",tags:["Scholarships","Student jobs"]},
-      {id:"ox-quiz",title:"학습 OX 퀴즈",type:"web",place:"Web app · Learning",note:"텍스트를 OX 문제로 바꾸고 간격을 두고 다시 푸는 학습 웹 앱입니다. 현재 체험판은 학습 내용이 브라우저에 저장됩니다.",href:"https://delight0517.github.io/ox-quiz-web/",label:"OX 퀴즈 체험하기",shot:"/previews/ox-quiz.jpg",tags:["Learning","Quiz"]},
-      {id:"knowledge-wire",title:"Bloud · Knowledge Wire",type:"web",place:"Web app · Learning",note:"유튜브 영상과 노트를 학습 카드로 바꾸고 질문·퀴즈·간격 반복으로 복습하는 학습 서비스입니다.",href:"https://brainwire-f2gf.onrender.com/",label:"서비스 열기",shot:"/previews/knowledge-wire.jpg",tags:["AI","Learning"]},
+      {id:"scholarcloud",title:"ScholarCloud Jobs",type:"web",place:"Website · Public demo",note:"장학금 검색과 대학생 아르바이트 탐색·지원 흐름을 나누어 소개하는 공개 데모입니다.",previewLabel:"공개 데모",href:"https://delight0517.github.io/scholarshipcloud-demo/",label:"공개 데모 열기",shot:"/previews/scholarcloud.jpg",tags:["Scholarships","Student jobs"]},
+      {id:"ox-quiz",title:"학습 OX 퀴즈",type:"web",place:"Web app · Learning",note:"텍스트를 OX 문제로 바꾸고 간격을 두고 다시 푸는 학습 웹 앱입니다. 현재 체험판은 학습 내용이 브라우저에 저장됩니다.",previewLabel:"브라우저 체험판",href:"https://delight0517.github.io/ox-quiz-web/",label:"OX 퀴즈 체험하기",shot:"/previews/ox-quiz.jpg",tags:["Learning","Quiz"]},
+      {id:"knowledge-wire",title:"Bloud · Knowledge Wire",type:"web",place:"Web app · Learning",note:"유튜브 영상과 노트를 학습 카드로 바꾸고 질문·퀴즈·간격 반복으로 복습하는 학습 서비스입니다. 공개 화면에는 체험 계정용 예시 콘텐츠가 보일 수 있습니다.",previewLabel:"미리보기 · 예시 콘텐츠",href:"https://brainwire-f2gf.onrender.com/",label:"서비스 열기",shot:"/previews/knowledge-wire.jpg",tags:["AI","Learning"]},
       {id:"isle-collection",title:"Isle · FocusGate 앱 컬렉션",type:"web",place:"Website · App collection",note:"Isle과 FocusGate를 소개하는 앱 컬렉션 웹사이트입니다. 각 앱의 소개와 지원 플랫폼, 현재 제공 상태를 확인할 수 있습니다.",href:"https://focusgate-landing.vercel.app/",label:"앱 컬렉션 열기",shot:"/previews/isle-collection.jpg",tags:["Apps","Portfolio"]},
 
       {id:"guide-home",title:"수업 알리미 도움말",type:"web",place:"Website · Product guide",note:"기능을 처음 쓰는 사람도 필요한 답을 빠르게 찾도록 수업 알리미 사용법을 정리했습니다.",href:"/everytime-reminder/",label:"웹 가이드 열기",shot:"/previews/guide-home.jpg",tags:["Help center","Product"]},
@@ -392,20 +395,23 @@
     const coarse = matchMedia("(pointer:coarse)").matches;
     const reduced = matchMedia("(prefers-reduced-motion:reduce)").matches;
     function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+    function visualLabel(w){if(w.previewLabel)return w.previewLabel;if(w.href&&w.href.includes("apps.apple.com"))return "App Store";if(/^Web app/i.test(w.place))return "웹 앱";return "웹사이트"}
+    function visualAlt(w){if(w.previewLabel)return w.title+" 공개 미리보기 · "+w.previewLabel;if(w.href&&w.href.includes("apps.apple.com"))return w.title+" App Store 스크린샷";if(/^Web app/i.test(w.place))return w.title+" 공개 웹 앱 캡처";return w.title+" 공개 웹사이트 캡처"}
     works.forEach(function(w){w.cover=w.shot||""});
     function addImages(container,kind){
       works.forEach(function(w,i){
         if(kind==="orb"){
           const card=document.createElement("div");card.className="card"+(w.portrait?" tall":"");card.dataset.idx=i;card.setAttribute("role","button");card.setAttribute("tabindex","-1");card.setAttribute("aria-label",w.title+" 상세 보기");
-          const fig=document.createElement("figure"),img=document.createElement("img");img.alt=w.title+" 실제 화면";img.decoding="async";img.src=w.cover;if(w.portrait)img.className="portrait";
+          const fig=document.createElement("figure"),img=document.createElement("img");img.alt=visualAlt(w);img.decoding="async";img.src=w.cover;if(w.portrait)img.className="portrait";
+          const proof=document.createElement("span");proof.className="screen-proof";proof.textContent=visualLabel(w);fig.appendChild(proof);
           img.addEventListener("error",function(){card.remove();markLoaded.call(this)});img.addEventListener("load",markLoaded);
-          fig.appendChild(img);card.appendChild(fig);container.appendChild(card);
+          fig.insertBefore(img,proof);card.appendChild(fig);container.appendChild(card);
           const yy=1-(i/(works.length-1))*2,rad=Math.sqrt(Math.max(0,1-yy*yy)),theta=i*Math.PI*(3-Math.sqrt(5));
           cardNodes.push({el:card,fig:fig,x:Math.cos(theta)*rad,y:yy,z:Math.sin(theta)*rad,idx:i,op:-1,dim:-1});
         }else{
           const b=document.createElement(w.href?"a":"button");if(w.href){b.href=w.href;b.target="_blank";b.rel="noopener"}else b.type="button";b.className="grid-card";b.dataset.idx=i;b.dataset.type=w.type;b.tabIndex=-1;b.setAttribute("aria-label",w.title+" 상세 보기");
           const img=document.createElement("img");img.alt="";img.loading="lazy";img.decoding="async";img.src=w.cover;if(w.portrait)img.className="portrait";img.addEventListener("error",function(){b.remove()});
-          const cap=document.createElement("span");cap.className="caption";cap.innerHTML='<span class="kind">'+(w.type==="app"?"APP":"WEB")+" · "+esc(w.place.split(" · ")[0])+'</span>'+esc(w.title);
+          const cap=document.createElement("span");cap.className="caption";cap.innerHTML='<span class="kind">'+esc(visualLabel(w))+'</span>'+esc(w.title);
           b.appendChild(img);b.appendChild(cap);container.appendChild(b);
         }
       });
@@ -491,8 +497,9 @@
     }
     function openLightbox(index,origin){
       const w=works[index];if(!w)return;focused=index;
-      const image=document.getElementById("litImage");image.src=w.cover;image.alt=w.title+" 작업 이미지";image.className=w.portrait?"portrait":"";
-      document.getElementById("litTitle").textContent=w.title;document.getElementById("litWhere").textContent=w.place+(w.tags&&w.tags.length?" · "+w.tags.join(" · "):"");document.getElementById("litNote").textContent=w.note;
+      const image=document.getElementById("litImage");image.src=w.cover;image.alt=visualAlt(w);image.className=w.portrait?"portrait":"";
+      document.getElementById("litTitle").textContent=w.title;document.getElementById("litWhere").textContent=w.place+(w.tags&&w.tags.length?" · "+w.tags.join(" · "):"")+" · "+visualLabel(w);document.getElementById("litNote").textContent=w.note;
+      const sourceMeta=document.getElementById("litSource");sourceMeta.replaceChildren();if(w.href){const sourceLink=document.createElement("a");sourceLink.href=w.href;sourceLink.target="_blank";sourceLink.rel="noopener noreferrer";sourceLink.textContent="원본 페이지: "+new URL(w.href,location.href).hostname+" ↗";sourceMeta.appendChild(sourceLink)}
       const actions=document.getElementById("litActions");actions.innerHTML="";
       if(w.href){const a=document.createElement("a");a.href=w.href;a.target="_blank";a.rel="noopener";a.textContent=w.label||"작업 열기";actions.appendChild(a)}
       if(w.demoHref){const demo=document.createElement("a");demo.href=w.demoHref;demo.target="_blank";demo.rel="noopener";demo.textContent=w.demoLabel||"시제품 체험";actions.appendChild(demo)}
