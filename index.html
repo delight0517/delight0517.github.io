@@ -424,8 +424,7 @@
       cardNodes.forEach(function(c){
         c.el.style.marginLeft=(-cw/2)+"px";
         c.el.style.marginTop=(c.el.classList.contains("tall")?(-cw*.625):(-cw/3))+"px";
-        const lat=Math.asin(c.y)*180/Math.PI,lon=Math.atan2(c.x,c.z)*180/Math.PI;
-        c.el.style.transform="translate3d("+(c.x*radius)+"px,"+(-c.y*radius)+"px,"+(c.z*radius)+"px) rotateY("+lon+"deg) rotateX("+lat+"deg)";
+        c.el.style.transform="translate3d("+(c.x*radius)+"px,"+(-c.y*radius)+"px,"+(c.z*radius)+"px)";
       });
       render(0,true);
     }
@@ -439,6 +438,7 @@
       cardNodes.forEach(function(c){
         const cy=Math.cos(sy),syv=Math.sin(sy),cx=Math.cos(sx),sxv=Math.sin(sx);
         const x1=c.x*cy+c.z*syv,z1=-c.x*syv+c.z*cy,zf=c.y*sxv+z1*cx;
+        c.el.style.transform="translate3d("+(c.x*radius)+"px,"+(-c.y*radius)+"px,"+(c.z*radius)+"px) rotateX("+(-sx)+"deg) rotateY("+(-dragX)+"deg)";
         const base=.14+.86*Math.pow((zf+1)/2,.85),shade=1-Math.min(1,p*1.6);
         let dim=shade*(1-base);if(focused>=0)dim=Math.min(1,dim+.78);
         const near=parseFloat(getComputedStyle(root).getPropertyValue("--persp"))*.66,depth=zf*radius+camZ;
