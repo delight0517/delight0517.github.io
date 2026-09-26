@@ -439,7 +439,7 @@
       cardNodes.forEach(function(c){
         const cy=Math.cos(sy),syv=Math.sin(sy),cx=Math.cos(sx),sxv=Math.sin(sx);
         const x1=c.x*cy+c.z*syv,z1=-c.x*syv+c.z*cy,zf=c.y*sxv+z1*cx;
-        c.el.style.transform="translate3d("+(c.x*radius)+"px,"+(-c.y*radius)+"px,"+(c.z*radius)+"px) rotateX("+(-sx)+"deg) rotateY("+(-dragX)+"deg)";
+        c.el.style.transform="translate3d("+(c.x*radius)+"px,"+(-c.y*radius)+"px,"+(c.z*radius)+"px)";
         const base=.14+.86*Math.pow((zf+1)/2,.85),shade=1-Math.min(1,p*1.6);
         let dim=shade*(1-base);if(focused>=0)dim=Math.min(1,dim+.78);
         const near=parseFloat(getComputedStyle(root).getPropertyValue("--persp"))*.66,depth=zf*radius+camZ;
