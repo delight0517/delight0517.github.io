@@ -156,6 +156,7 @@
     .shot{position:relative;width:100%;aspect-ratio:3/2;border-radius:2px;background:#0b0b0b;box-shadow:0 30px 90px rgba(0,0,0,.75);overflow:hidden}
     .shot img{width:100%;height:100%;object-fit:cover}
     .shot img.portrait{object-fit:contain;background:#070707}
+    .shot iframe{display:block;width:100%;height:100%;border:0;background:#fff}
     .close{position:absolute;top:12px;right:14px;z-index:2;min-width:44px;min-height:44px;padding:10px 14px;border:1px solid rgba(244,242,239,.78);border-radius:6px;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);color:#f4f2ef;font-size:12px}
     .close:hover{border-color:#fff;background:rgba(0,0,0,.55)}
     .meta{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(22px,3.2vw,48px);padding-top:16px}
@@ -265,7 +266,7 @@
   </header>
   <aside class="bio chrome" aria-label="작업자 소개">
     <div class="who"><img id="avatar" src="https://img1.kakaocdn.net/thumb/C128x128.fpng/?fname=http://t1.kakaocdn.net/brunch/service/user/8RKx/image/XUiLQ38WRFIXaJQm7VpkJIbxyUw.png" alt="김근후 프로필"><b>김근후</b></div>
-    <p>앱과 웹 프로젝트를 모았습니다. 카드는 공개 웹페이지 캡처나 App Store 스크린샷이며, 시제품과 예시 데이터는 따로 표시했습니다.</p>
+    <p>웹 작업은 카드를 눌러 공개 중인 원본 화면으로 바로 확인할 수 있어요. 앱은 App Store 실제 스크린샷과 설치 링크를 보여드립니다.</p>
     <div class="services"><span>App</span><span>Website</span><span>Product</span><span>Popup</span></div>
     <a class="contact-link" href="https://open.kakao.com/me/rogan_kim" target="_blank" rel="noopener noreferrer">카카오톡으로 문의 <span aria-hidden="true">↗</span></a>
     <a class="service-link" href="/web-app-planning.html">서비스 소개 <span aria-hidden="true">↗</span></a>
@@ -354,7 +355,7 @@
       {id:"jev-evidence",title:"Jev Evidence Kit",type:"web",place:"Web app · AI comparison tool",note:"ChatGPT와 다른 AI 경로의 답변을 나란히 비교하는 무료 오프라인 도구입니다. 현재 미리보기에는 가상 예시가 포함되어 있습니다.",previewLabel:"웹사이트 · 가상 예시 포함",href:"https://jev-evidence-kit.rogan2534.chatgpt.site/",label:"Jev Evidence Kit 열기",shot:"/previews/jev-evidence.jpg",tags:["AI","Tool"]},
       {id:"app-studio",title:"Kim GeunHu App Studio",type:"web",place:"Website · App production",note:"앱 아이디어를 첫 결과물로 구체화하는 제작 안내 페이지입니다. 진행 범위와 조건을 살펴보고 상담할 수 있습니다.",href:"https://delight0517.github.io/releasepilot-reports/app-studio/",label:"App Studio 열기",shot:"/previews/app-studio.jpg",tags:["App","Planning"]},
       {id:"launchmate",title:"Launchmate",type:"web",place:"Website · App production",note:"앱 제작 35,000원부터. 상담 전화 없이 신청서로 의뢰하고, 범위·비용 합의 후 3일 안에 써볼 프로토타입을 목표로 App Store·Google Play 출시까지 준비합니다.",href:"https://launchmate-app-builders.rogan2534.chatgpt.site/",label:"서비스 페이지 열기",shot:"/previews/launchmate.jpg",tags:["App","Planning"]},
-      {id:"applypilot",title:"ApplyPilot",type:"web",place:"Web app · Game art careers",note:"게임 아트 신입·주니어를 위한 채용공고 탐색, 포트폴리오 맞춤 지원 준비, 지원 현황 관리 시제품입니다. 대시보드 데모는 실제 채용공고 API가 아직 연결되지 않은 상태입니다.",previewLabel:"시제품 · 예시 데이터",href:"https://applypilot-game-art-career.rogan2534.chatgpt.site/",label:"소개 페이지 보기",demoHref:"https://applypilot-game-art-career.rogan2534.chatgpt.site/demo",demoLabel:"대시보드 시제품 체험",shot:"/previews/applypilot.jpg",tags:["Career","Prototype"]},
+      {id:"applypilot",title:"ApplyPilot",type:"web",place:"Web app · Game art careers",note:"게임 아트 신입·주니어를 위한 채용공고 탐색, 포트폴리오 맞춤 지원 준비, 지원 현황 관리 시제품입니다. 대시보드 데모는 실제 채용공고 API가 아직 연결되지 않은 상태입니다.",previewLabel:"시제품 · 예시 데이터",href:"https://applypilot-game-art-career.rogan2534.chatgpt.site/",label:"소개 페이지 보기",screenHref:"https://applypilot-game-art-career.rogan2534.chatgpt.site/demo",demoHref:"https://applypilot-game-art-career.rogan2534.chatgpt.site/demo",demoLabel:"대시보드 시제품 체험",shot:"/previews/applypilot.jpg",tags:["Career","Prototype"]},
       {id:"meme-cabinet",title:"밈캐비닛",type:"web",place:"Website · Meme archive",note:"감정과 소리로 밈을 찾고, 유래와 원본 출처를 따라가는 밈 아카이브입니다.",href:"https://meme-cabinet.rogan2534.chatgpt.site/",label:"밈캐비닛 열기",shot:"/previews/meme-cabinet.jpg",tags:["Archive","Search"]},
       {id:"gil-local",title:"GIL 동네일",type:"web",place:"Web app · Local errands",note:"내 행선지와 겹치는 동네 픽업·배달·운반 요청을 찾아보는 지역 서비스입니다.",href:"https://gil-walk-local.rogan2534.chatgpt.site/",label:"서비스 열기",shot:"/previews/gil-local.jpg",tags:["Local","Service"]},
       {id:"gil-menuring",title:"GIL 메뉴링",type:"web",place:"Website · QR menu",note:"외국인 손님을 위한 다국어 QR 메뉴와 스티커 제작을 안내하는 서비스 페이지입니다.",href:"https://gil-neighborhood.rogan2534.chatgpt.site/",label:"서비스 페이지 열기",shot:"/previews/gil-menuring.jpg",tags:["Local business","Website"]},
@@ -497,9 +498,14 @@
     }
     function openLightbox(index,origin){
       const w=works[index];if(!w)return;focused=index;
-      const image=document.getElementById("litImage");image.src=w.cover;image.alt=visualAlt(w);image.className=w.portrait?"portrait":"";
+      const shot=document.querySelector("#lit .shot");shot.querySelectorAll("img,iframe").forEach(function(node){node.remove()});
+      if(w.href&&!w.href.includes("apps.apple.com")){
+        const frame=document.createElement("iframe");frame.src=w.screenHref||w.href;frame.title=w.title+" 실제 화면";frame.loading="eager";frame.referrerPolicy="strict-origin-when-cross-origin";frame.allow="clipboard-read; clipboard-write";shot.insertBefore(frame,shot.querySelector(".close"));
+      }else{
+        const image=document.createElement("img");image.id="litImage";image.src=w.cover;image.alt=visualAlt(w);image.className=w.portrait?"portrait":"";shot.insertBefore(image,shot.querySelector(".close"));
+      }
       document.getElementById("litTitle").textContent=w.title;document.getElementById("litWhere").textContent=w.place+(w.tags&&w.tags.length?" · "+w.tags.join(" · "):"")+" · "+visualLabel(w);document.getElementById("litNote").textContent=w.note;
-      const sourceMeta=document.getElementById("litSource");sourceMeta.replaceChildren();if(w.href){const sourceLink=document.createElement("a");sourceLink.href=w.href;sourceLink.target="_blank";sourceLink.rel="noopener noreferrer";sourceLink.textContent="원본 페이지: "+new URL(w.href,location.href).hostname+" ↗";sourceMeta.appendChild(sourceLink)}
+      const sourceMeta=document.getElementById("litSource");sourceMeta.replaceChildren();if(w.href){const sourceLink=document.createElement("a");sourceLink.href=w.href;sourceLink.target="_blank";sourceLink.rel="noopener noreferrer";sourceLink.textContent=(w.href.includes("apps.apple.com")?"App Store 실제 스크린샷 · ":"현재 공개 중인 원본 화면 · ")+new URL(w.href,location.href).hostname+" ↗";sourceMeta.appendChild(sourceLink)}
       const actions=document.getElementById("litActions");actions.innerHTML="";
       if(w.href){const a=document.createElement("a");a.href=w.href;a.target="_blank";a.rel="noopener";a.textContent=w.label||"작업 열기";actions.appendChild(a)}
       if(w.demoHref){const demo=document.createElement("a");demo.href=w.demoHref;demo.target="_blank";demo.rel="noopener";demo.textContent=w.demoLabel||"시제품 체험";actions.appendChild(demo)}
@@ -513,7 +519,7 @@
     function closeLightbox(){
       if(!body.classList.contains("lit"))return;
       focused=-1;body.classList.remove("lit");lit.setAttribute("aria-hidden","true");document.getElementById("menuBtn").removeAttribute("aria-hidden");
-      const image=document.getElementById("litImage");image.removeAttribute("src");
+      const shot=document.querySelector("#lit .shot");shot.querySelectorAll("iframe").forEach(function(frame){frame.src="about:blank"});
       setTimeout(function(){plate.style.transition="none";plate.style.transform="";plate.style.opacity="";plate.offsetWidth;plate.style.transition=""},640);
     }
     function toggleGrid(){body.classList.contains("gridview")?hideGrid():showGrid("all")}
