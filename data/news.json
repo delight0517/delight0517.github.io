@@ -62,6 +62,16 @@
       "body": "데일리 저널링 앱 harugirok의 첫 빌드를 App Review에 제출했습니다.",
       "version": "1.0",
       "status": "submitted"
+    },
+    {
+      "date": "2026-09-28",
+      "type": "release",
+      "appId": "35closer-timer",
+      "title": "35Closer Timer 1.1.0 출시",
+      "body": "새 버전이 App Store에 배포되었습니다.",
+      "version": "1.1.0",
+      "status": "released",
+      "storeUrl": "https://apps.apple.com/us/app/35closer-timer/id6805697167?mt=12&uo=4"
     }
   ]
 }
