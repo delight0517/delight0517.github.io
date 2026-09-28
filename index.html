@@ -85,6 +85,15 @@
     body.revealed header.chrome,body.revealed .bio,body.revealed .colophon,body.revealed .cue{opacity:1}
     .wordmark{font-family:"Playfair Display","Times New Roman",serif;font-size:clamp(19px,2.1vw,27px);letter-spacing:.005em;line-height:1;color:#fff;white-space:nowrap}
     .wordmark em,.mark em{font-style:normal}
+    .header-tools{position:relative;display:flex;align-items:flex-start;gap:clamp(8px,1.3vw,18px)}
+    .language-picker{position:relative;color:#fff}
+    .language-picker summary{min-width:44px;min-height:44px;display:flex;align-items:center;justify-content:center;gap:5px;list-style:none;cursor:pointer;font-size:10px;letter-spacing:.08em}
+    .language-picker summary::-webkit-details-marker{display:none}
+    .language-picker summary svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.35}
+    .language-options{position:absolute;top:48px;right:0;z-index:95;min-width:142px;padding:5px;border:1px solid rgba(255,255,255,.24);border-radius:8px;background:#080808;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+    .language-options button{width:100%;min-height:40px;padding:0 10px;display:flex;align-items:center;justify-content:space-between;border-radius:4px;text-align:left;font-size:12px;color:rgba(255,255,255,.72)}
+    .language-options button:hover,.language-options button[aria-pressed="true"]{background:rgba(255,255,255,.1);color:#fff}
+    .language-options button[aria-pressed="true"]:after{content:"✓"}
     .menu-btn{min-width:var(--tap);min-height:var(--tap);padding:5px 0 4px;display:flex;flex-direction:column;align-items:flex-end;gap:3px;color:#fff}
     .menu-label{font-size:clamp(12px,1.25vw,15px);letter-spacing:.01em;opacity:1;transition:opacity .35s}
     .bars{position:relative;display:block;width:clamp(42px,4.4vw,62px);height:clamp(16px,2vw,22px)}
@@ -269,7 +278,15 @@
   <div class="vig" aria-hidden="true"></div>
   <header class="chrome">
     <a class="wordmark" href="/" aria-label="김근후 앱 포트폴리오">GeunHu<em>Kim</em></a>
-    <button id="menuBtn" class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="메뉴 열기"><span class="menu-label">Menu</span><span class="bars" aria-hidden="true"><i></i><i></i></span></button>
+    <div class="header-tools">
+      <details id="languagePicker" class="language-picker">
+        <summary aria-label="언어 선택"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M2.9 12h18.2M12 2.75c2.4 2.5 3.6 5.58 3.6 9.25S14.4 18.75 12 21.25C9.6 18.75 8.4 15.67 8.4 12S9.6 5.25 12 2.75Z"/></svg><span id="languageCode">KO</span></summary>
+        <div id="languageOptions" class="language-options" role="group" aria-label="언어 선택">
+          <button type="button" data-language="ko">한국어</button><button type="button" data-language="en">English</button><button type="button" data-language="ja">日本語</button><button type="button" data-language="zh">简体中文</button><button type="button" data-language="es">Español</button>
+        </div>
+      </details>
+      <button id="menuBtn" class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="메뉴 열기"><span class="menu-label">Menu</span><span class="bars" aria-hidden="true"><i></i><i></i></span></button>
+    </div>
   </header>
   <aside class="bio chrome" aria-label="작업자 소개">
     <div class="who"><img id="avatar" src="https://avatars.githubusercontent.com/u/197245592?v=4" alt="김근후 프로필"><b>김근후</b></div>
@@ -375,6 +392,14 @@
       es:["Archivo de proyectos · 2026","Apps · Web · Ideas — 2026",["Apps","Sitios web","Productos","Pop-ups"],"Kim GeunHu · Archivo de proyectos"]
     }[locale];
     document.documentElement.lang=locale==="zh"?"zh-CN":locale;
+    const languagePicker=document.getElementById("languagePicker"),languageNames={ko:"언어 선택",en:"Choose language",ja:"言語を選択",zh:"选择语言",es:"Elegir idioma"};
+    document.getElementById("languageCode").textContent=locale.toUpperCase();
+    languagePicker.querySelector("summary").setAttribute("aria-label",languageNames[locale]);
+    document.getElementById("languageOptions").setAttribute("aria-label",languageNames[locale]);
+    document.querySelectorAll("#languageOptions [data-language]").forEach(function(button){button.setAttribute("aria-pressed",String(button.dataset.language===locale))});
+    document.getElementById("languageOptions").addEventListener("click",function(e){const button=e.target.closest("[data-language]");if(!button)return;languagePicker.open=false;if(button.dataset.language===locale)return;const url=new URL(location.href);url.searchParams.set("lang",button.dataset.language);location.assign(url.href)});
+    document.addEventListener("click",function(e){if(!languagePicker.contains(e.target))languagePicker.open=false});
+    document.addEventListener("keydown",function(e){if(e.key==="Escape")languagePicker.open=false});
     document.title=t.title;
     document.querySelector('meta[name="description"]').content=t.description;
     document.querySelector('meta[property="og:title"]').content=t.title;
