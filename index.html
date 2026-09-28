@@ -461,7 +461,13 @@
     function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
     function visualLabel(w){if(w.previewLabel)return w.previewLabel;if(w.href&&w.href.includes("apps.apple.com"))return "App Store";if(/^Web app/i.test(w.place)||/웹 ?앱|ウェブアプリ|网页应用|App web/i.test(w.place))return t.webKind;return t.website}
     function visualAlt(w){if(w.previewLabel)return w.title+" "+t.siteAlt+" · "+w.previewLabel;if(w.href&&w.href.includes("apps.apple.com"))return w.title+" "+t.appShotAlt;if(/^Web app/i.test(w.place)||/웹 ?앱|ウェブアプリ|网页应用|App web/i.test(w.place))return w.title+" "+t.webAlt;return w.title+" "+t.siteAlt}
-    works.forEach(function(w){w.cover=w.shot||""});
+    const localizedCovers={
+      launchmate:{ko:"/previews/ko/launchmate.jpg",en:"/previews/en/launchmate.jpg",ja:"/previews/ja/launchmate.jpg",zh:"/previews/zh/launchmate.jpg",es:"/previews/es/launchmate.jpg"},
+      "vintage-pomodoro":{ko:"/previews/ko/vintage-pomodoro.jpg",en:"/previews/en/vintage-pomodoro.jpg",ja:"/previews/ja/vintage-pomodoro.jpg",zh:"/previews/zh/vintage-pomodoro.jpg",es:"/previews/es/vintage-pomodoro.jpg"},
+      pomoflow:{ko:"/previews/ko/pomoflow.jpg",en:"/previews/en/pomoflow.jpg",ja:"/previews/ja/pomoflow.jpg",zh:"/previews/zh/pomoflow.jpg",es:"/previews/es/pomoflow.jpg"},
+      "gil-local":{en:"/previews/en/gil-local.jpg",ja:"/previews/ja/gil-local.jpg",zh:"/previews/zh/gil-local.jpg",es:"/previews/es/gil-local.jpg"}
+    };
+    works.forEach(function(w){w.cover=(localizedCovers[w.id]||{})[locale]||w.shot||""});
     function addImages(container,kind){
       works.forEach(function(w,i){
         if(kind==="orb"){
