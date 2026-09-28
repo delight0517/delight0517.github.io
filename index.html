@@ -66,7 +66,7 @@
     #stage *{-webkit-user-select:none;user-select:none;-webkit-user-drag:none}
     #world{position:absolute;top:50%;left:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
     #orb{position:absolute;top:0;left:0;width:0;height:0;transform-style:preserve-3d;opacity:1;transform:none}
-    #headline{position:absolute;top:0;left:0;width:var(--hw);margin-left:calc(var(--hw)/-2);text-align:center;font-family:"Playfair Display","Times New Roman",serif;font-weight:400;font-size:clamp(25px,3.7vw,55px);line-height:1.06;letter-spacing:-.005em;color:#fff;text-shadow:0 2px 34px rgba(0,0,0,.55);pointer-events:none;user-select:none;-webkit-user-select:none;transition:opacity .4s ease}
+    #headline{position:absolute;top:50%;left:50%;width:var(--hw);margin-left:calc(var(--hw)/-2);text-align:center;font-family:"Playfair Display","Times New Roman",serif;font-weight:400;font-size:clamp(25px,3.7vw,55px);line-height:1.06;letter-spacing:-.005em;color:#fff;text-shadow:0 2px 34px rgba(0,0,0,.55);pointer-events:none;user-select:none;-webkit-user-select:none;transition:opacity .85s ease,filter .85s ease}
     #headline .inner{position:absolute;top:0;left:0;width:100%;transform:translateY(-50%)}
     #headline .word{display:inline-block;opacity:0;transform:translateY(.42em);filter:blur(7px);transition:opacity 1.05s,transform 1.15s,filter 1.05s;transition-delay:calc(.9s + var(--i)*.085s)}
     body.revealed #headline .word{opacity:1;transform:none;filter:blur(0)}
@@ -230,7 +230,7 @@
     }
     @media(max-width:640px){
       :root{--hw:min(86vw,340px);--pad:clamp(12px,4vw,18px);--persp:760px}
-      #stage{touch-action:pan-y}
+      #stage{touch-action:none}
       #headline .word{display:block}
       #avatar{width:42px;height:42px}
       .bio b{font-size:17px}.bio p{font-size:11.5px;line-height:1.55}
@@ -267,13 +267,14 @@
     }
     @media(prefers-reduced-motion:reduce){
       *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.14s!important;scroll-behavior:auto!important}
+      #headline{transition-duration:.65s!important}
     }
   </style>
 </head>
 <body class="locked">
   <div id="scrolltrack" aria-hidden="true"></div>
   <main id="stage" aria-label="김근후의 앱과 웹사이트 3D 작업 아카이브">
-    <div id="world"><div id="orb"></div><h1 id="headline" aria-label="앱과 웹 프로젝트 아카이브"><span class="inner"><span class="word" style="--i:0">앱과 웹,</span> <span class="word" style="--i:1">실제 프로젝트를</span> <span class="word" style="--i:2">한눈에</span></span></h1></div>
+    <div id="world"><div id="orb"></div></div><h1 id="headline" aria-label="앱과 웹 프로젝트 아카이브"><span class="inner"><span class="word" style="--i:0">앱과 웹,</span> <span class="word" style="--i:1">실제 프로젝트를</span> <span class="word" style="--i:2">한눈에</span></span></h1>
   </main>
   <div class="vig" aria-hidden="true"></div>
   <header class="chrome">
@@ -546,7 +547,7 @@
       const p=Math.max(0,Math.min(1,scrollY/(innerHeight*.16))),target=p*Math.min(64,radius*.12);
       camZ+=(target-camZ)*.075;
       document.getElementById("world").style.transform="translateZ("+camZ+"px) rotateZ("+dragZ+"deg) rotateY("+dragX+"deg) rotateX("+sx+"deg)";
-      const headline=document.getElementById("headline");headline.style.transform="rotateX("+(-sx)+"deg) rotateY("+(-dragX)+"deg) rotateZ("+(-dragZ)+"deg) translateZ("+(radius*1.04)+"px)";headline.style.opacity=String(headlineDismissed?0:Math.max(0,1-p*.55));
+      const headline=document.getElementById("headline");headline.style.opacity=String(headlineDismissed?0:Math.max(0,1-p*.55));headline.style.filter=headlineDismissed?"blur(5px)":"blur(0)";
       cardNodes.forEach(function(c){
         const zf=-c.x*syv+(-c.y*sxv+c.z*cx)*cy;
         const depthRatio=(zf+1)/2;
@@ -682,7 +683,7 @@
     stage.addEventListener("pointermove",function(e){
       if(!drag||e.pointerId!==drag.id)return;
       const dx=e.clientX-drag.lastX,dy=e.clientY-drag.lastY,totalX=e.clientX-drag.x,totalY=e.clientY-drag.y;
-      if(drag.pending){if(Math.hypot(totalX,totalY)<10)return;if(Math.abs(totalY)>Math.abs(totalX)*1.15){drag=null;return}drag.pending=false;drag.active=true;hideHeadline();this.setPointerCapture(e.pointerId)}
+      if(drag.pending){if(Math.hypot(totalX,totalY)<10)return;drag.pending=false;drag.active=true;hideHeadline();this.setPointerCapture(e.pointerId)}
       if(drag.active){e.preventDefault();dragX+=dx*.13;dragY=Math.max(-28,Math.min(36,dragY-dy*.13));dragZ+=dx*.075;velX=dx*.13;velY=-dy*.13;velZ=dx*.075;drag.moved=Math.max(drag.moved,Math.hypot(totalX,totalY));drag.lastX=e.clientX;drag.lastY=e.clientY}
     });
     function finishPointer(e){
