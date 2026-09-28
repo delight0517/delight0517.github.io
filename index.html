@@ -505,7 +505,7 @@
     function addImages(container,kind){
       works.forEach(function(w,i){
         if(kind==="orb"){
-          const card=document.createElement("div");card.className="card"+(w.portrait?" tall":"");card.dataset.idx=i;card.setAttribute("role","button");card.setAttribute("tabindex","-1");card.setAttribute("aria-label",w.title+" "+t.detail);
+          const card=document.createElement("div");card.className="card"+(w.portrait?" tall":"");card.dataset.idx=i;card.setAttribute("role","button");card.setAttribute("tabindex","-1");card.setAttribute("aria-label",visualLabel(w)+" · "+w.title+" "+t.detail);
           const fig=document.createElement("figure"),img=document.createElement("img");img.alt=visualAlt(w);img.decoding="async";img.src=w.cover;if(w.portrait)img.className="portrait";
           const proof=document.createElement("span");proof.className="screen-proof";proof.textContent=visualLabel(w);fig.appendChild(proof);
           img.addEventListener("error",function(){card.remove();markLoaded.call(this)});img.addEventListener("load",markLoaded);
@@ -513,7 +513,7 @@
           const yy=1-(i/(works.length-1))*2,rad=Math.sqrt(Math.max(0,1-yy*yy)),theta=i*Math.PI*(3-Math.sqrt(5));
           cardNodes.push({el:card,fig:fig,x:Math.cos(theta)*rad,y:yy,z:Math.sin(theta)*rad,idx:i,op:-1,dim:-1,scale:1});
         }else{
-          const b=document.createElement(w.href?"a":"button");if(w.href){b.href=w.href;b.target="_blank";b.rel="noopener"}else b.type="button";b.className="grid-card";b.dataset.idx=i;b.dataset.type=w.type;b.tabIndex=-1;b.setAttribute("aria-label",w.title+" "+t.detail);
+          const b=document.createElement(w.href?"a":"button");if(w.href){b.href=w.href;b.target="_blank";b.rel="noopener"}else b.type="button";b.className="grid-card";b.dataset.idx=i;b.dataset.type=w.type;b.tabIndex=-1;b.setAttribute("aria-label",visualLabel(w)+" · "+w.title+" "+t.detail);
           const img=document.createElement("img");img.alt="";img.loading="lazy";img.decoding="async";img.src=w.cover;if(w.portrait)img.className="portrait";img.addEventListener("error",function(){b.remove()});
           const cap=document.createElement("span");cap.className="caption";cap.innerHTML='<span class="kind">'+esc(visualLabel(w))+'</span>'+esc(w.title);
           b.appendChild(img);b.appendChild(cap);container.appendChild(b);
@@ -619,7 +619,7 @@
         frame.addEventListener("error",fallback,{once:true});
         frame.src=previewHref;shot.insertBefore(frame,shot.querySelector(".close"));previewTimer=setTimeout(fallback,8000);
       }
-      document.getElementById("litTitle").textContent=w.title;document.getElementById("litWhere").textContent=w.place+(w.tags&&w.tags.length?" · "+w.tags.join(" · "):"")+" · "+visualLabel(w);document.getElementById("litNote").textContent=w.note;
+      document.getElementById("litTitle").textContent=visualLabel(w);document.getElementById("litWhere").textContent=w.title+(w.tags&&w.tags.length?" · "+w.tags.join(" · "):"");document.getElementById("litNote").textContent=w.note;
       const sourceMeta=document.getElementById("litSource"),sourceHref=w.websiteHref||w.href;sourceMeta.replaceChildren();if(sourceHref){const sourceLink=document.createElement("a");sourceLink.href=sourceHref;sourceLink.target="_blank";sourceLink.rel="noopener noreferrer";sourceLink.textContent=(w.websiteHref?t.source:w.href.includes("apps.apple.com")?t.appShot:t.source)+new URL(sourceHref,location.href).hostname+" ↗";sourceMeta.appendChild(sourceLink)}
       const actions=document.getElementById("litActions");actions.innerHTML="";
       if(w.websiteHref){const site=document.createElement("a");site.href=w.websiteHref;site.target="_blank";site.rel="noopener";site.textContent=({ko:"제품 웹사이트 열기",en:"Open product website",ja:"製品サイトを見る",zh:"打开产品网站",es:"Abrir sitio del producto"})[locale];actions.appendChild(site)}
