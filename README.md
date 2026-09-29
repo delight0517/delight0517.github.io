@@ -2,7 +2,7 @@
 
 앱과 웹사이트, 서비스 기획 작업을 3D 아카이브로 소개하는 포트폴리오입니다. 공개된 프로젝트는 소개 페이지나 데모로 이어지고, 새 작업 의뢰는 서비스 안내에서 확인할 수 있습니다.
 
-**[포트폴리오 둘러보기](https://delight0517.github.io/)** · [제작·기획 안내](https://delight0517.github.io/web-app-planning.html) · [팝업스토어 기획 체크리스트](https://delight0517.github.io/popup-store-planning.html)
+**[포트폴리오 둘러보기](https://delight0517.github.io/)** · [앱 제작 안내](https://delight0517.github.io/app-development.html) · [제작·기획 안내](https://delight0517.github.io/web-app-planning.html) · [팝업스토어 기획 체크리스트](https://delight0517.github.io/popup-store-planning.html)
 
 ## 다루는 작업
 
@@ -16,6 +16,7 @@
 
 - `index.html`: 3D 작업 아카이브와 프로젝트 탐색
 - `web-app-planning.html`: 웹사이트 제작·앱 기획 안내와 문의 경로
+- `app-development.html`: 앱 제작·서버 연동 안내와 국가별 문의 선택
 - `popup-store-planning.html`: 팝업스토어 사전 기획 안내와 문의 준비 도구
 - `sitemap.xml`, `robots.txt`: 검색 크롤러를 위한 사이트 경로 안내
 
