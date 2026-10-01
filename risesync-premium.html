@@ -1,72 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>RiseSync Premium — AI 알람 + 광고 없는 집중 모드</title>
-<meta name="description" content="RiseSync는 AI가 최적 기상 시간을 분석하는 알람 앱입니다. 월 7,000원으로 광고 없이 사용하세요.">
+<meta name="theme-color" content="#f5f5ef">
+<title>RiseSync — 낮잠도 밤잠도, 깰 시간은 맡겨요</title>
+<meta name="description" content="낮잠은 자동 감지로 깰 시점을 챙기고, 밤잠은 잠든 시점과 목표 수면 시간에 맞춰 기상 알람을 준비하는 수면 기반 알람 RiseSync.">
 <link rel="canonical" href="https://delight0517.github.io/risesync-premium.html">
-<meta property="og:title" content="RiseSync Premium — AI 스마트 알람">
-<meta property="og:description" content="광고 없이, 더 깊은 수면 분석. 지금 시작하세요.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="RiseSync">
+<meta property="og:title" content="RiseSync — 낮잠도 밤잠도, 깰 시간은 맡겨요">
+<meta property="og:description" content="매번 알람 시각을 계산하지 않아도. 수면 흐름을 바탕으로 RiseSync가 깰 시간을 챙깁니다.">
 <meta property="og:url" content="https://delight0517.github.io/risesync-premium.html">
+<meta name="twitter:card" content="summary">
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:#0a0a0a; color:#fff; }
-  .hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:2rem; background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 50%,#16213e 100%); }
-  .badge { background:#ff6b35; color:#fff; padding:.3rem 1rem; border-radius:100px; font-size:.85rem; font-weight:700; display:inline-block; margin-bottom:1.5rem; }
-  h1 { font-size:clamp(2rem,5vw,4rem); font-weight:800; line-height:1.1; margin-bottom:1rem; }
-  h1 span { background:linear-gradient(90deg,#667eea,#764ba2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-  .sub { font-size:1.2rem; color:#aaa; max-width:600px; margin:0 auto 2.5rem; line-height:1.6; }
-  .cta-group { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-bottom:3rem; }
-  .btn-primary { background:linear-gradient(90deg,#667eea,#764ba2); color:#fff; padding:1rem 2.5rem; border-radius:100px; text-decoration:none; font-weight:700; font-size:1.1rem; transition:.2s; }
-  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(102,126,234,.4); }
-  .btn-secondary { border:2px solid #444; color:#fff; padding:1rem 2.5rem; border-radius:100px; text-decoration:none; font-weight:600; }
-  .price-box { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:2rem; max-width:400px; margin:0 auto 3rem; backdrop-filter:blur(10px); }
-  .price-box h3 { font-size:1.5rem; margin-bottom:.5rem; }
-  .price { font-size:3rem; font-weight:800; color:#667eea; }
-  .price span { font-size:1rem; color:#aaa; }
-  .features { list-style:none; text-align:left; margin-top:1.5rem; }
-  .features li { padding:.5rem 0; color:#ccc; }
-  .features li::before { content:"✓ "; color:#667eea; font-weight:700; }
-  .urgency { color:#ff6b35; font-size:.9rem; margin-top:1rem; font-weight:600; }
+:root{color-scheme:light;--ink:#1d2923;--muted:#65736a;--paper:#f5f5ef;--white:#fff;--green:#214b39;--lime:#d7efb4;--orange:#efaa62;--line:#dfe4da;--serif:Georgia,"Times New Roman",serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit}a:focus-visible{outline:3px solid #d9813f;outline-offset:4px}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.topbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:760;letter-spacing:-.03em}.brand-mark{width:34px;height:34px;padding:5px;border-radius:10px;background:var(--green)}.clock-meta .brand-mark{width:30px;height:30px;padding:4px;border-radius:9px}.top-link{font-size:14px;text-decoration:none;color:var(--muted)}.hero{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:5vw;padding:70px 0 94px}.eyebrow{display:flex;align-items:center;gap:9px;color:var(--green);font-size:12px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}.eyebrow:before{content:"";width:24px;height:1px;background:currentColor}h1{max-width:650px;margin:20px 0;font-size:clamp(43px,6.1vw,76px);line-height:1.05;letter-spacing:-.075em}h1 em{font-family:var(--serif);font-weight:500;letter-spacing:-.06em;color:var(--green)}.lead{max-width:530px;color:var(--muted);font-size:18px;line-height:1.75}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:27px 0 18px}.button{min-height:50px;display:inline-flex;align-items:center;justify-content:center;padding:0 20px;border-radius:999px;text-decoration:none;font-size:14px;font-weight:740;transition:transform .2s,background .2s}.button:hover{transform:translateY(-2px)}.primary{background:var(--green);color:#fff}.primary:hover{background:#163a2b}.secondary{border:1px solid #cbd3c7;background:#ffffff7a}.availability{display:flex;align-items:flex-start;gap:9px;max-width:510px;color:#526356;font-size:13px;line-height:1.55}.availability i{width:8px;height:8px;flex:none;margin-top:5px;border-radius:50%;background:#dd9a4a}.visual{position:relative;min-height:450px;display:grid;place-items:center;overflow:hidden;border-radius:34px;background:radial-gradient(ellipse at 55% 36%,#fff9dc 0,#f3dfac 28%,#97bdab 59%,#315847 100%)}.visual:before,.visual:after{content:"";position:absolute;border:1px solid #ffffff80;border-radius:50%;width:370px;height:370px}.visual:after{width:470px;height:470px}.sun{position:absolute;top:76px;width:205px;height:205px;border-radius:50%;background:linear-gradient(145deg,#fff8d8,#f1b765);box-shadow:0 20px 65px #394c3140}.horizon{position:absolute;top:206px;left:0;right:0;height:1px;background:#fff9dcbb}.clock-card{position:relative;z-index:1;width:min(285px,72%);padding:24px;border:1px solid #ffffffb8;border-radius:23px;background:#fffdf0d9;box-shadow:0 24px 60px #22392d35;backdrop-filter:blur(12px);transform:translateY(86px)}.clock-meta{display:flex;justify-content:space-between;align-items:center;color:#65736a;font-size:12px}.clock-meta img{width:30px;height:30px;border-radius:9px}.clock-time{margin:16px 0 4px;font-size:49px;font-weight:720;letter-spacing:-.07em}.clock-caption{color:#65736a;font-size:13px}.clock-line{height:1px;margin:18px 0;background:#e1e4d9}.sleep-note{display:flex;gap:9px;align-items:center;font-size:12px;color:#425447}.sleep-note span{width:8px;height:8px;border-radius:50%;background:#63886c;box-shadow:0 0 0 4px #63886c20}.mini-note{position:absolute;z-index:2;right:8%;bottom:25px;padding:11px 15px;border-radius:14px;background:#244b38;color:white;font-size:12px;box-shadow:0 8px 24px #17332430}.section{padding:78px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:28px}.section h2{max-width:600px;margin:0;font-size:clamp(30px,4vw,48px);letter-spacing:-.06em;line-height:1.13}.section-head p{max-width:330px;margin:0;color:var(--muted);line-height:1.7}.use-cases{display:grid;grid-template-columns:1fr 1fr;gap:16px}.case{min-height:255px;padding:30px;border-radius:24px;background:var(--white);border:1px solid var(--line)}.case:first-child{background:#e9efdf}.case-tag{color:var(--green);font-size:12px;font-weight:750;letter-spacing:.12em}.case h3{margin:40px 0 12px;font-size:25px;letter-spacing:-.045em}.case p{max-width:440px;margin:0;color:var(--muted);line-height:1.7}.case-mark{float:right;font-family:var(--serif);font-size:37px;color:#82978a}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;overflow:hidden;border:1px solid var(--line);border-radius:23px;background:var(--line)}.step{min-height:185px;padding:24px;background:#f8f8f3}.step b{color:#6b806c;font-family:var(--serif);font-size:18px}.step h3{margin:28px 0 8px;font-size:18px;letter-spacing:-.03em}.step p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}.bottom-cta{display:flex;align-items:center;justify-content:space-between;gap:28px;padding:36px;border-radius:26px;background:#213f31;color:#fff}.bottom-cta h2{max-width:560px;margin:0;font-size:clamp(27px,4vw,42px);letter-spacing:-.06em;line-height:1.12}.bottom-cta p{margin:12px 0 0;color:#c5d3c8;line-height:1.6}.bottom-cta .button{flex:none;background:var(--lime);color:#1d3428}.fineprint{max-width:760px;margin:25px auto 0;color:#768278;font-size:12px;line-height:1.8}.footer{display:flex;justify-content:space-between;gap:20px;padding:26px 0 34px;margin-top:55px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}.footer a{text-decoration:none}@media(max-width:760px){.wrap{width:min(100% - 32px,560px)}.topbar{padding:17px 0}.hero{grid-template-columns:1fr;gap:30px;padding:46px 0 58px}.hero-copy{order:0}h1{font-size:clamp(43px,12vw,62px)}.lead{font-size:16px}.visual{min-height:360px}.sun{top:52px;width:160px;height:160px}.horizon{top:160px}.visual:before{width:300px;height:300px}.visual:after{width:385px;height:385px}.clock-card{transform:translateY(68px);padding:20px}.clock-time{font-size:43px}.mini-note{bottom:17px}.section{padding:58px 0}.section-head{display:block}.section-head p{margin-top:14px}.use-cases{grid-template-columns:1fr}.case{min-height:215px}.case h3{margin-top:29px}.steps{grid-template-columns:1fr}.step{min-height:145px}.step h3{margin-top:16px}.bottom-cta{align-items:flex-start;flex-direction:column;padding:27px}.bottom-cta .button{width:100%}.footer{flex-direction:column}.actions .button{flex:1 1 180px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
 <script defer src="https://brainwire-f2gf.onrender.com/website-traffic.js" data-site="ad7eec200d8e26650ae4"></script>
 </head>
 <body>
-<section class="hero">
-  <span class="badge">🔥 지금 19명만 더 구독하면 서버 비용 충당</span>
-  <h1>AI가 분석한<br><span>완벽한 기상 시간</span></h1>
-  <p class="sub">RiseSync는 단순한 알람이 아닙니다. 수면 사이클을 분석해 당신이 가장 개운하게 깰 수 있는 타이밍을 잡아줍니다. 광고 없이.</p>
-  
-  <div class="price-box">
-    <h3>BlueCloud Premium</h3>
-    <div class="price">7,000<span>원/월</span></div>
-    <ul class="features">
-      <li>광고 완전 제거</li>
-      <li>RiseSync + Everytime Reminder 모두 프리미엄</li>
-      <li>수면 분석 무제한</li>
-      <li>위젯 커스터마이징</li>
-    </ul>
-    <p class="urgency">또는 6개월 5,000원 — 2개월 무료</p>
-  </div>
-
-  <div class="cta-group">
-    <a href="https://apps.apple.com/kr/developer/rogan/id1234567890" class="btn-primary">App Store에서 시작하기</a>
-    <a href="https://delight0517.github.io/apps" class="btn-secondary">앱 더 보기</a>
-  </div>
-  
-  <p style="color:#555;font-size:.85rem;">Apple In-App Purchase · 언제든 취소 가능 · 한국 개인 개발자 직접 운영</p>
-</section>
-
-<style>
-.geunhu-service-cta{box-sizing:border-box;width:min(1120px,calc(100% - 40px));margin:clamp(48px,8vw,96px) auto 32px;padding:clamp(22px,4vw,36px);display:flex;align-items:center;justify-content:space-between;gap:24px;border:1px solid rgba(127,127,127,.3);border-radius:22px;background:rgba(127,127,127,.08);font-family:inherit;color:inherit}
-.geunhu-service-cta__eyebrow{margin:0 0 8px;font-size:12px;letter-spacing:.12em;opacity:.72}
-.geunhu-service-cta h2{margin:0;font:inherit;font-size:clamp(20px,3vw,32px);line-height:1.25;font-weight:650;letter-spacing:-.03em}
-.geunhu-service-cta__link{display:inline-flex;flex:none;align-items:center;justify-content:center;min-height:48px;padding:0 20px;border-radius:999px;background:#185c49;color:#fff;text-decoration:none;font-size:14px;font-weight:700;transition:transform .18s,background .18s}
-.geunhu-service-cta__link:hover{transform:translateY(-2px);background:#104735}
-@media(max-width:600px){.geunhu-service-cta{width:calc(100% - 32px);align-items:flex-start;flex-direction:column;gap:18px}.geunhu-service-cta__link{width:100%}}
-</style>
-<section class="geunhu-service-cta" aria-labelledby="geunhu-service-cta-title"><div><p class="geunhu-service-cta__eyebrow" id="geunhu-service-cta-eyebrow">비슷한 서비스가 필요하신가요?</p><h2 id="geunhu-service-cta-title">나도 이와 같은 서비스가 필요하다면?</h2></div><a class="geunhu-service-cta__link" id="geunhu-service-cta-link" href="https://launchmate-app-builders.rogan2534.chatgpt.site/#contact">제작 의뢰 맡기기! ↗</a></section>
-<script>(()=>{const text={ko:['비슷한 서비스가 필요하신가요?','나도 이와 같은 서비스가 필요하다면?','제작 의뢰 맡기기! ↗'],en:['NEED A SIMILAR SERVICE?','Want a website or app like this?','Request a project ↗'],ja:['似たサービスをお探しですか？','同じようなウェブサイトやアプリも制作できます。','制作を依頼する ↗'],zh:['也需要类似的服务吗？','想制作类似的网站或应用？','提交制作委托 ↗'],es:['¿Necesitas un servicio parecido?','¿Quieres una web o app como esta?','Solicitar proyecto ↗']};const locale=(document.documentElement.lang||navigator.languages?.[0]||navigator.language||'ko').toLowerCase().split('-')[0],copy=text[locale]||text.ko;document.getElementById('geunhu-service-cta-eyebrow').textContent=copy[0];document.getElementById('geunhu-service-cta-title').textContent=copy[1];document.getElementById('geunhu-service-cta-link').textContent=copy[2]})();</script>
+<header class="wrap topbar"><a class="brand" href="/"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 23a11 11 0 0 1 22 0" fill="#efaa62"/><path d="M16 4v5m-9 0 3.5 3.5m15-3.5L22 12.5M3 24h26" fill="none" stroke="#fff9dc" stroke-linecap="round" stroke-width="2.5"/></svg><span>RiseSync</span></a><a class="top-link" href="/">포트폴리오 돌아가기 ↗</a></header>
+<main>
+  <section class="wrap hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <div class="eyebrow">SLEEP, THEN WAKE</div>
+      <h1 id="hero-title">낮잠도 밤잠도,<br><em>깰 시간은 맡겨요.</em></h1>
+      <p class="lead">낮잠은 잠든 흐름을 살펴 깨울 때를 챙기고, 밤잠은 매일 알람 시각을 다시 계산하지 않아도 되도록. RiseSync는 수면 패턴을 바탕으로 기상 알람을 준비합니다.</p>
+      <div class="actions"><a class="button primary" href="mailto:rogan2534@gmail.com?subject=RiseSync%20%EC%B6%9C%EC%8B%9C%20%EC%86%8C%EC%8B%9D">출시 소식 문의하기 ↗</a><a class="button secondary" href="#how">작동 방식 보기</a></div>
+      <div class="availability"><i aria-hidden="true"></i><span>현재 스토어에서 다운로드할 수 없습니다. 공개 다운로드 링크가 확인되면 이 페이지에 연결할 예정입니다.</span></div>
+    </div>
+    <div class="visual" role="img" aria-label="아침 햇살을 배경으로 다음 기상 시각을 준비하는 RiseSync 알람의 콘셉트 이미지">
+      <div class="sun"></div><div class="horizon"></div>
+      <div class="clock-card"><div class="clock-meta"><span>기상 시각 예시</span><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 23a11 11 0 0 1 22 0" fill="#efaa62"/><path d="M16 4v5m-9 0 3.5 3.5m15-3.5L22 12.5M3 24h26" fill="none" stroke="#fff9dc" stroke-linecap="round" stroke-width="2.5"/></svg></div><div class="clock-time">07:00</div><div class="clock-caption">수면 목표에 맞춘 예시 화면</div><div class="clock-line"></div><div class="sleep-note"><span></span>잠든 시점과 목표 수면 시간 기준</div></div>
+      <div class="mini-note">낮잠 후 깰 때도 챙겨요</div>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="moments-title"><div class="wrap"><div class="section-head"><h2 id="moments-title">알람 시각을 맞추는 대신,<br>잠에 맞춰 일어나도록.</h2><p>짧은 낮잠과 밤잠은 다르게 흘러가니까요. RiseSync는 두 순간의 수면 흐름을 각각 살펴봅니다.</p></div>
+    <div class="use-cases"><article class="case"><span class="case-tag">01 · POWER NAP</span><span class="case-mark" aria-hidden="true">☼</span><h3>잠깐 눈 붙일 때</h3><p>낮잠 자동 감지를 켜두면, 잠든 흐름을 바탕으로 깰 시점을 계산해 알람을 예약합니다. 매번 타이머를 먼저 맞추지 않아도 돼요.</p></article><article class="case"><span class="case-tag">02 · NIGHT SLEEP</span><span class="case-mark" aria-hidden="true">☾</span><h3>밤에 푹 자고 싶을 때</h3><p>목표 수면 시간을 정해두면, 실제 잠든 시점을 바탕으로 다음 날 기상 알람을 준비합니다. 내일의 기상 시각을 매일 직접 계산할 필요가 줄어들어요.</p></article></div>
+  </div></section>
+  <section class="section" id="how" aria-labelledby="how-title"><div class="wrap"><div class="section-head"><h2 id="how-title">설정은 미리,<br>기상 준비는 자동으로.</h2><p>수면 목표와 알림 권한을 설정한 뒤, RiseSync가 잠든 시점과 기록을 바탕으로 알람을 준비합니다.</p></div>
+    <div class="steps"><article class="step"><b>01</b><h3>수면 목표를 정해요</h3><p>원하는 수면 시간과 기상 설정을 앱에서 준비합니다.</p></article><article class="step"><b>02</b><h3>잠든 흐름을 살펴요</h3><p>수면 감지 기능과 기기 설정에 따라 잠든 시점을 파악합니다.</p></article><article class="step"><b>03</b><h3>깰 시간을 계산해요</h3><p>목표 수면 시간과 낮잠 흐름을 기준으로 알람을 예약합니다.</p></article></div>
+  </div></section>
+  <section class="wrap bottom-cta" aria-labelledby="launch-title"><div><h2 id="launch-title">출시되면, 가장 먼저<br>다운로드 링크를 알려드릴게요.</h2><p>현재 공개 스토어 링크가 없어 출시 소식을 이메일로 문의할 수 있습니다.</p></div><a class="button" href="mailto:rogan2534@gmail.com?subject=RiseSync%20%EC%B6%9C%EC%8B%9C%20%EC%86%8C%EC%8B%9D">출시 소식 문의 ↗</a></section>
+  <p class="wrap fineprint">RiseSync는 수면 패턴을 참고하는 알람 앱이며 의료용 수면 측정 도구가 아닙니다. 자동 감지와 알림은 기기 권한·설정 및 사용 환경의 영향을 받을 수 있습니다. 중요한 일정에는 별도의 알람을 함께 설정해 주세요.</p>
+</main>
+<footer class="wrap footer"><a href="/">김근후 앱 아카이브</a><span>RiseSync · 수면 흐름 기반 기상 알람</span></footer>
 </body>
 </html>
