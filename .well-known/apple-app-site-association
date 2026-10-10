@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "V3J8MR637G.com.delight0517.selah",
+          "V3J8MR637G.com.delight0517.selah.mac"
+        ],
+        "components": [
+          {
+            "/": "/selah-bible-meditation/",
+            "?": {
+              "homeAction": "read"
+            },
+            "comment": "Selah shared Scripture invitations only; all other portfolio routes stay in the browser."
+          }
+        ]
+      }
+    ]
+  }
+}
