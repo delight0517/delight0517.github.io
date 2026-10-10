@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">AutoWiFi speedometer concept</title>
+  <desc id="desc">A dark Wi-Fi speedometer panel with no fabricated measurement value.</desc>
+  <defs>
+    <radialGradient id="bg" cx="78%" cy="10%" r="90%"><stop stop-color="#27433b"/><stop offset="1" stop-color="#111312"/></radialGradient>
+    <linearGradient id="card" x2="0.8" y2="1"><stop stop-color="#242c26"/><stop offset="1" stop-color="#151a17"/></linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="780" cy="400" r="290" fill="none" stroke="#d8ff6214" stroke-width="42"/>
+  <circle cx="780" cy="400" r="240" fill="none" stroke="#d8ff6210" stroke-width="2"/>
+  <rect x="208" y="112" width="784" height="576" rx="28" fill="url(#card)" stroke="#ffffff38" stroke-width="2"/>
+  <text x="260" y="178" fill="#d8ff62" font-family="Arial,sans-serif" font-size="22" letter-spacing="5">AUTOWIFI / CONNECTION</text>
+  <circle cx="940" cy="167" r="8" fill="#d8ff62"/>
+  <path d="M390 494 A390 390 0 0 1 810 265" fill="none" stroke="#d8ff6234" stroke-width="24" stroke-linecap="round"/>
+  <path d="M390 494 A390 390 0 0 1 555 300" fill="none" stroke="#d8ff62" stroke-width="24" stroke-linecap="round"/>
+  <text x="600" y="485" fill="#f1efe8" font-family="Georgia,serif" font-size="104" text-anchor="middle">—</text>
+  <text x="600" y="532" fill="#aeb4aa" font-family="Arial,sans-serif" font-size="17" letter-spacing="4" text-anchor="middle">MEASURE WHEN REQUESTED</text>
+  <path d="M260 590 H940" stroke="#ffffff24"/>
+  <text x="275" y="628" fill="#aeb4aa" font-family="Arial,sans-serif" font-size="17">CURRENT WI-FI</text>
+  <text x="275" y="658" fill="#f1efe8" font-family="Arial,sans-serif" font-size="22">Measured on request</text>
+  <text x="640" y="628" fill="#aeb4aa" font-family="Arial,sans-serif" font-size="17">ACTUAL DOWNLOAD</text>
+  <text x="640" y="658" fill="#f1efe8" font-family="Arial,sans-serif" font-size="22">No sample result shown</text>
+</svg>
