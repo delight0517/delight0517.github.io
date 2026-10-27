@@ -1,5 +1,13 @@
 # 작업 아카이브 TODO
 
+## 2026-10-27 UE Asset Atlas portfolio integration card
+
+- **Project ID/type:** `delight0517.github.io` / public personal portfolio website.
+- **Canonical source:** this checkout, origin `https://github.com/delight0517/delight0517.github.io.git`, branch `main` at `88fed4180416db48b6674aa140f960d36a375390` when work began.
+- **Objective:** add a clearly linked, per-object 3D gallery that reads only explicitly public, optimized GLB derivatives and loads a single selected model on demand.
+- **Allowed QA:** synthetic model/poster fixtures and local static-page inspection. No actual portfolio assets, private selection data, credential changes, repository push, or Pages deployment in this implementation pass.
+- **Dependencies:** the UE Asset Atlas public-selection manifest and local exporter; this site's existing root portfolio and GitHub Pages deployment. Keep existing project cards, sitemap, and scheduled SEO workflow compatible.
+
 - [ ] Build 40 (2026-10-10): AutoWiFi 기능·기여자 소개 페이지를 만들고 포트폴리오 및 사이트맵에 연결. 원작자 Aarnav Koushik의 출처를 유지하고 원본 저장소에 LICENSE가 없어 별도 라이선스를 만들지 않음. 웹 배포 준비 후 공개 URL 응답 확인 필요. 원본 앱 저장소는 인증 계정의 push 권한이 없어 별도 공개는 미완료.
 
 - [x] Build 1 (2026-09-25): `/archive/` 아카이브 초안. Build 2에서 루트 첫 화면으로 대체.
