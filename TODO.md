@@ -193,3 +193,13 @@ https://delight0517.github.io/
 - [x] 2026-09-26 Google 공개 검색 기준선: Aside 브라우저에서 `site:delight0517.github.io` 결과에 홈페이지와 PomoFlow·ReleasePilot·Vintage Pomodoro·Jev Evidence Kit 등 자사 페이지가 표시됨. `김근후 웹사이트 제작`에서는 홈페이지가 첫 번째, 서비스 페이지가 두 번째로 표시됐고, `김근후 팝업스토어 기획`에서는 서비스 페이지가 첫 번째·홈페이지가 두 번째, `김근후 앱 개발`에서는 홈페이지가 첫 번째로 표시됨. 이는 확인 당시 한 Google 세션의 공개 검색 결과 순서이며 전체 사용자 순위·유입 성과를 뜻하지 않음.
 - [ ] Search Console 권한 후속: 현재 Aside의 Google 세션에서 `https://delight0517.github.io/` 속성에 “이 속성에 액세스할 수 없음”이 표시됨. 기존 속성·계정을 변경하지 않고 중단. 실제 노출·클릭 보고서는 권한 있는 계정에서 재확인.
 - [ ] 네이버 홍보 발행 후속: `PostWriteForm.naver?blogId=delight0517`에서 스마트에디터와 제목 영역은 열렸으나 본문 입력부가 확인되지 않았고, 브라우저 탭이 다른 Aside 작업 소유로 표시됨. 기존 홍보 초안은 그대로 두고 게시하지 않음. 소유 작업의 탭을 건드리지 않는 별도 브라우저 세션에서 작성·공개·검색 허용을 확인한 뒤 이어감.
+
+## Project execution card — Software Tutor app archive entry (2026-10-29)
+- Project ID/type: `delight0517.github.io` / public app and web portfolio.
+- Canonical root/source: `C:\Users\delig\Documents\Codex\2026-10-27\windows-https-github-com-delight0517-ue\work\delight0517.github.io`; `origin/main` SHA `b0c60235d871ad1ca1c9b339cb283253c8c09c54`, branch main. Main was fast-forwarded from `88fed41`; the checked-out feature branch had the same tree as origin/main and remains untouched.
+- Objective: add a single Software Tutor portfolio card linking to the public product page and its verified actual Windows QA screenshot; preserve existing archive entries and translations.
+- Allowed QA/publish target: this static GitHub Pages portfolio repository and its configured Pages workflow. User explicitly requested public publication and app-portfolio inclusion.
+- Dependencies: product marketing Site `appgprj_6ae3187a42048191aa50604e9217a766` at `https://software-tutor-early-access-1029.rogan2534.chatgpt.site`; approved isolated QA screenshot; no app source dependency copied.
+- Excluded: Software Tutor app source/runtime/install, user app account, microphone, Mac source, other portfolio sites, user data and credentials. Installer is not currently released; card must say prelaunch and link only to the introduction page.
+- State/permissions: repo clean before this card; no personal data; image contains synthetic QA provider labels. GitHub push/Pages deployment is explicitly within the request; no signing/elevation.
+- Delta-first scope: edit root `index.html`, add `previews/software-tutor-window.png`, and update this TODO. No broad portfolio rebuild or edits to other project records.
