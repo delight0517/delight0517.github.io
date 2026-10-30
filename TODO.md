@@ -203,3 +203,15 @@ https://delight0517.github.io/
 - Excluded: Software Tutor app source/runtime/install, user app account, microphone, Mac source, other portfolio sites, user data and credentials. Installer is not currently released; card must say prelaunch and link only to the introduction page.
 - State/permissions: repo clean before this card; no personal data; image contains synthetic QA provider labels. GitHub push/Pages deployment is explicitly within the request; no signing/elevation.
 - Delta-first scope: edit root `index.html`, add `previews/software-tutor-window.png`, and update this TODO. No broad portfolio rebuild or edits to other project records.
+
+## 2026-10-30 — Only Chat public source and portfolio entry
+
+- Project ID/type: `only-chat-windows` Windows Electron desktop app (source release) and `delight0517.github.io` public app portfolio.
+- Canonical source/version: Only Chat release snapshot derived from Windows source commit `d6b4a9ae3bceaaff132e122a2194f765365a779c`, app 1.0.5; curated release repo `delight0517/only-chat`. Portfolio canonical remote `https://github.com/delight0517/delight0517.github.io`, branch `main`, base `26b2ca7042ae673dda1880dcb527a9ba06e3ed61`.
+- Objective: publicly distribute the Only Chat source and introduce it in the existing app-development portfolio.
+- Allowed QA and publication: static/source validation, synthetic tests, GitHub repository `delight0517/only-chat`, and this portfolio's GitHub Pages `main` branch. No Only Chat or 3F live process changes.
+- Included: Windows source, lockfile/runtime dependencies, required SIWC SDK output and third-party notices; optional 3F bridge documentation; five-language portfolio card and product icon.
+- Excluded: active canonical Only Chat/3F working-tree edits, 3F source/binaries/license, local user data, credentials, release installer, social-account posts, and all unrelated portfolio work.
+- License boundary: original Only Chat source has MIT; bundled Sign in with ChatGPT DevKit has separate noncommercial terms. Full bundle is mixed-license. 3F is independent optional software, not included or required for base app use.
+- Verification: fresh source snapshot `npm ci` followed by `npm test` passed; `npm pack --dry-run` contained SDK runtime and notices (259 entries, 2.27 MB unpacked); portfolio inline JavaScript parsed and all five locales contain Only Chat detail/label. Browser/UI visual and packaged installer verification were not performed.
+- Delta: one new Only Chat portfolio record and icon; no changes to `data/apps.json` (App Store release tracker), sitemap, other cards, or separate Launchmate Site.
