@@ -215,3 +215,14 @@ https://delight0517.github.io/
 - License boundary: original Only Chat source has MIT; bundled Sign in with ChatGPT DevKit has separate noncommercial terms. Full bundle is mixed-license. 3F is independent optional software, not included or required for base app use.
 - Verification: fresh source snapshot `npm ci` followed by `npm test` passed; `npm pack --dry-run` contained SDK runtime and notices (259 entries, 2.27 MB unpacked); portfolio inline JavaScript parsed and all five locales contain Only Chat detail/label. Browser/UI visual and packaged installer verification were not performed.
 - Delta: one new Only Chat portfolio record and icon; no changes to `data/apps.json` (App Store release tracker), sitemap, other cards, or separate Launchmate Site.
+
+## Execution card — Only Chat product page extension (2026-10-30)
+
+- Project ID/type: `delight0517.github.io`, public personal app portfolio / static GitHub Pages site.
+- Canonical root/version: this checkout of `https://github.com/delight0517/delight0517.github.io`, branch `main`, head `f77112a1530e059f2072eb5d3d4ba023ebdcf484`; current public source release `https://github.com/delight0517/only-chat/releases/tag/source-1.0.5`.
+- Objective/focus: complement the Only Chat archive card with a first-party detail page covering source status, setup, 3F optionality and exact mixed-license scope.
+- Allowed QA/publish target: this portfolio repo and its existing GitHub Pages deployment; static checks and anonymous public HTTP after push.
+- Dependencies: Only Chat source release README, package and license notices, public icon; portfolio shell and SEO conventions.
+- Excluded: Only Chat canonical/active working source, all 3F source/binaries, any installer/binary promise, personal account posts, other sites/apps/data.
+- Permissions: authenticated GitHub push is covered by the user's explicit request to promote Only Chat in the portfolio. No sign-in, external tool credentials, UI launch or signing needed.
+- Preserve: existing cards, analytics, language routing, sitemap entries; only add the new product page, point its card to the page plus source link, add sitemap/noscript discovery, and checkpoint TODO.
